@@ -8,5 +8,9 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "vite": "^2.5.0",
+    "vite-plugin-ruby": "^3.0.0"
+  }
 }
