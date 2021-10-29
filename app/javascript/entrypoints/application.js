@@ -28,3 +28,22 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
+
+import 'virtual:windi.css'
+import 'virtual:windi-base.css'
+import 'virtual:windi-components.css'
+
+
+// This file is automatically compiled by Webpack, along with any other files
+// present in this directory. You're encouraged to place your actual application logic in
+// a relevant structure within app/javascript and only use these pack files to reference
+// that code so it'll be compiled.
+
+import Rails from "@rails/ujs"
+import * as ActiveStorage from "@rails/activestorage"
+import "@hotwired/turbo-rails"
+import "../channels"
+import "../controllers"
+
+Rails.start()
+ActiveStorage.start()
