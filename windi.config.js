@@ -9,6 +9,7 @@ export default defineConfig({
       'app/javascript/**/*.{vue,js,ts,jsx,tsx}',
     ],
   },
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
