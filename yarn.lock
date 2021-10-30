@@ -425,6 +425,11 @@ spark-md5@^3.0.0:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
+stimulus-vite-helpers@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/stimulus-vite-helpers/-/stimulus-vite-helpers-1.0.4.tgz#45c35bf5e11e9f7cfb51146ae04959f5bab1029a"
+  integrity sha512-Tbe6DQFiIbHeZIxh9aVuqS2kosSHJZyatns/X00wO9BQSrL1y4+dz4wSwM3lJH0ASxAx1DwC8TCTUgvRYEIaAQ==
+
 supports-color@^7.1.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
@@ -446,6 +451,14 @@ vite-plugin-ruby@^3.0.0:
   dependencies:
     debug "^4.3.1"
     fast-glob "^3.2.4"
+
+vite-plugin-stimulus-hmr@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-stimulus-hmr/-/vite-plugin-stimulus-hmr-1.0.2.tgz#e1ea1b32f4092a24327ea7a68e403c972267850a"
+  integrity sha512-bqVl0nVjaWDhq+o+I8unbEVgvSWxYsmzfGHPq6EyqsZuwY1FZapA7J6Ku4O6dm7NAMMGikIu1kMXO1PsAicj5A==
+  dependencies:
+    debug "^4.3.1"
+    stimulus-vite-helpers "^1.0.4"
 
 vite-plugin-windicss@^1.4.12:
   version "1.4.12"
