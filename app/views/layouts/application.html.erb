@@ -11,7 +11,10 @@
     <%= vite_javascript_tag 'application', 'data-turbo-track': 'reload'  %>
   </head>
 
-  <body>
+  <body class="dark">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
