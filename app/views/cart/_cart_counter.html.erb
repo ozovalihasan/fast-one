@@ -1,3 +1,5 @@
-<div id="cart-counter" class="w-6 h-6 flex items-center justify-center <%= "bg-red-600 rounded-full" if @cart.order_items.exists?  %>">
-    <%= @cart.total_item %>
-</div>
+<% if @cart.order_items.exists? %>
+    <div id="cart-counter" class="text-white font-bold absolute right-0 -top-2 w-5 h-5 text-xs flex items-center justify-center bg-red-600 rounded-full">
+        <%= @cart.total_item %>
+    </div>
+<% end %>

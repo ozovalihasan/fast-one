@@ -1,7 +1,9 @@
 <div id=<%= "#{dom_id order_item}_form" %>>
-    <%= form_with model: [:checks, order_item], id:"order-item-form", class: "flex flex-col" do |f| %>
+    <%= form_with model: [:checks, order_item], id:"order-item-form", class: " " do |f| %>
         <%= f.hidden_field :quantity, value: order_item.quantity + 1  %>
-        <%= f.submit "+", class: "w-10 h-10 bg-first-300 rounded-full border" %>
+        <%= f.button class: "center-content w-10 h-10 bg-first-300 rounded-full border" do %>
+            <div class="icon-math-plus"></div>
+        <% end %>
     <% end %>
 
     <div class="text-center"><%= order_item.quantity %></div>
@@ -9,7 +11,9 @@
     <% if order_item.quantity > 1 %>
         <%= form_with model: [:checks, order_item], id:"order-item-form", class: "flex flex-col" do |f| %>
             <%= f.hidden_field  :quantity, value: order_item.quantity - 1 %>
-            <%= f.submit "-", class: "w-10 h-10 bg-first-300 rounded-full border" %>
+            <%= f.button class: "center-content w-10 h-10 bg-first-300 rounded-full border" do %>
+                <div class="icon-math-minus "></div>
+            <% end %>
         <% end %>
     <% else %>
         <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-first-300 rounded-full border" do %>
