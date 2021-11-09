@@ -1,0 +1,7 @@
+ <%= form_with model: order_item, id:"order-item-form", class: "flex-1", html: {data: {controller: "counter", "counter-count-value": order_item.quantity || 1}} do |f| %>
+    <%= f.hidden_field :product_id, value: order_item.product_id %>
+    <button data-action="click->counter#decrease" class="w-10 h-10 bg-first-300">-</button>
+    <%= f.text_field :quantity, class: "m-0 w-12 text-center text-black", readonly: true, data: { "counter-target": "output"} %>
+    <button data-action="click->counter#increase" class="text w-10 h-10 bg-first-300">+</button>
+    <%= f.submit "Add to Cart" %>
+<% end %>

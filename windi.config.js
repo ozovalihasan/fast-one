@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite-plugin-windicss'
 import colors from 'windicss/colors'
+import icons from '@windicss/plugin-icons'
 
 export default defineConfig({
   extract: {
@@ -10,35 +11,34 @@ export default defineConfig({
     ],
   },
   darkMode: 'class',
+  shortcuts: {
+    'btn': 'py-2 px-4 font-semibold rounded-lg text-shadow-md',
+    'center-content': 'flex items-center justify-center'
+  },
   theme: {
     extend: {
       colors: {
+        primary: colors.black,
         transparent: 'transparent',
         current: 'currentColor',
-        black: colors.black,
-        white: colors.white,
-        red: colors.red,
-        orange: colors.orange,
-        yellow: colors.yellow,
-        green: colors.green, 
-        gray: colors.blueGray,
-        indigo: {
-          100: '#e6e8ff',
-          300: '#b2b7ff',
-          400: '#7886d7',
-          500: '#6574cd',
-          600: '#5661b3',
-          800: '#2f365f',
-          900: '#191e38',
-        },
+        first: colors.sky, 
+        second: colors.orange, 
+        third: colors.yellow, 
+        fourth: colors.red, 
+        fifth: colors.green, 
       },
       borderColor: theme => ({
         DEFAULT: theme('colors.gray.200', 'currentColor'),
       }),
       boxShadow: theme => ({
-        outline: `0 0 0 2px ${theme('colors.indigo.500')}`,
+        outline: `0 0 10px 2px ${theme('colors.second.500')}`,
       }),
       fill: theme => theme('colors'),
     },
   },
+  plugins: [
+    icons,
+    require('windicss/plugin/aspect-ratio'),
+  ]
+
 })

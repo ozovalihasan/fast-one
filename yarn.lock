@@ -9,7 +9,7 @@
   dependencies:
     "@types/throttle-debounce" "^2.1.0"
 
-"@hotwired/stimulus@^3.0.1":
+"@hotwired/stimulus@>=3.0.0", "@hotwired/stimulus@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
   integrity sha512-oHsJhgY2cip+K2ED7vKUNd2P+BEswVhrCYcJ802DSsblJFv7mPFVk3cQKvm2vHgHeDVdnj7oOKrBbzp1u8D+KA==
@@ -60,11 +60,6 @@
   dependencies:
     spark-md5 "^3.0.0"
 
-"@rails/ujs@^6.0.0":
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.1.4.tgz#093d5341595a02089ed309dec40f3c37da7b1b10"
-  integrity sha512-O3lEzL5DYbxppMdsFSw36e4BHIlfz/xusynwXGv3l2lhSlvah41qviRpsoAlKXxl37nZAqK+UUF5cnGGK45Mfw==
-
 "@types/throttle-debounce@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@types/throttle-debounce/-/throttle-debounce-2.1.0.tgz#1c3df624bfc4b62f992d3012b84c56d41eab3776"
@@ -78,6 +73,11 @@
     debug "^4.3.2"
     jiti "^1.12.9"
     windicss "^3.1.9"
+
+"@windicss/plugin-icons@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@windicss/plugin-icons/-/plugin-icons-1.0.2.tgz#8bc4024ebeb516a9d68b013d8a16db4509f4184f"
+  integrity sha512-PN6+y9TwEFQn+x6hmCUbCH2YzCfLyImcgQZQQAZ3kCZvqvZDyfKgS9TuhHY1Y0vp12lO6ULFUWpH6YIVGOPM6A==
 
 "@windicss/plugin-utils@1.4.12":
   version "1.4.12"
@@ -436,6 +436,13 @@ supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+tailwindcss-stimulus-components@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-3.0.1.tgz#d2238d2c3d3c66dbf207ccb28fd4d741d131f9b1"
+  integrity sha512-SLR6+mL8mdVUb6AEgr4bocETO6WAztUyc07cFYyLxLwB5KS6aZy4GZDNthZQtZK7D7fdCjUypaPwjDkGGwbUaA==
+  dependencies:
+    "@hotwired/stimulus" ">=3.0.0"
 
 to-regex-range@^5.0.1:
   version "5.0.1"

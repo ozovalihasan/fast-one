@@ -3,5 +3,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import CounterController from "./counter_controller"
+import { Alert, Tabs } from "tailwindcss-stimulus-components"
+application.register("counter", CounterController)
+application.register("alert", Alert)
+application.register("tabs", Tabs)

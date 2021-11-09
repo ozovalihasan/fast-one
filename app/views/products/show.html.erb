@@ -1,2 +1,31 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<%= render 'cart/cart' %>
+
+<div class="m-8">
+    <div class="shadow-xl border flex">
+        <div class="shadow-fifth-900 h-96  bg-fourth-200 flex-1">
+            image_here
+        </div>
+        <div class="flex-1 m-6">
+            <div class="text-center p-2">
+                <%= @product.name %>
+            </div>
+            <div>
+                <%= @product.price %>
+            </div>
+            <div>
+                <%= @product.average_star %>
+            </div>
+    
+            <div>
+                <%= @product.shipping_locations.pluck(:name).join(", ") %>
+            </div>
+
+            <%= render partial:'products/form', locals: { order_item: @order_item} %>
+        </div>
+    
+    </div>
+    
+    <%= render 'products/tabs' %>
+</div>
+
+

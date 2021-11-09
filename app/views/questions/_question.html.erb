@@ -1,0 +1,10 @@
+<div class="p-3 rounded-lg">
+    <div class="bg-second-50 rounded-lg m-3">
+        Q: <%= question.body %>
+    </div>
+    <% if question.answer %>
+        <div class="bg-third-50 m-3 rounded-lg">
+            A: <%= render partial:'questions/answer', locals: { answer: question.answer } %>
+        </div>
+    <% end %>
+</div>

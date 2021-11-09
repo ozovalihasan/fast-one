@@ -1,0 +1,7 @@
+<%= turbo_stream.append "notice" do %>
+    <%= render partial: "layouts/alert", locals: { information: "#{@order_item.product.name} is updated." } %>
+<% end %>
+<%= turbo_stream.replace "#{dom_id @order_item}_form" do %>
+    <%= render partial: "checks/order_items/form", locals: { order_item: @order_item } %>
+<% end %>
+<%= turbo_stream.update "total_price", @cart.total_price %>

@@ -1,0 +1,38 @@
+ <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t" class="py-5 bg-first-50 ">
+    <ul class="list-reset flex border-b -mb">
+        <li class="-mb-px mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+            <a class="bg-fifth-100 inline-block py-2 px-4 text-fourth-500 hover:text-fourth-700 font-semibold no-underline" href="#">
+                Description
+            </a>
+        </li>
+        <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+            <a class="bg-fifth-100 inline-block py-2 px-4 text-fourth-500 hover:text-fourth-700 font-semibold no-underline" href="#">
+                Reviews
+            </a>
+        </li>
+        <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+            <a class="bg-fifth-100 inline-block py-2 px-4 text-fourth-500 hover:text-fourth-700 font-semibold no-underline" href="#">
+                Questions
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="h-64 overflow-scroll min-h-0 overflow-x-hidden">
+        <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
+            <div class="bg-first-50">
+                <%= @product.description %>
+            </div>
+        </div>
+        <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
+            <turbo-frame id="reviews_list" src=<%= product_reviews_path(@product) %> loading="lazy">
+                <%= render 'layouts/loading' %>
+            </turbo-frame>
+        </div>
+        <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
+            <turbo-frame id="questions_list" src=<%= product_questions_path(@product) %> loading="lazy">
+                <%= render 'layouts/loading' %>
+            </turbo-frame>
+        </div>
+    </div>
+</div>

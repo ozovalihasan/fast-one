@@ -25,21 +25,12 @@ ActiveRecord::Schema.define(version: 2021_11_02_163347) do
     t.index ["seller_id"], name: "index_answers_on_seller_id"
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.bigint "consumer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["consumer_id"], name: "index_carts_on_consumer_id"
-  end
-
   create_table "order_items", force: :cascade do |t|
-    t.string "quantity"
-    t.bigint "cart_id", null: false
+    t.integer "quantity", null: false
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cart_id"], name: "index_order_items_on_cart_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
@@ -104,8 +95,6 @@ ActiveRecord::Schema.define(version: 2021_11_02_163347) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users", column: "seller_id"
-  add_foreign_key "carts", "users", column: "consumer_id"
-  add_foreign_key "order_items", "carts"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users", column: "consumer_id"

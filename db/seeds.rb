@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+FactoryBot.create(:user)
+5.times do
+  FactoryBot.create(:product)
+end
+
+20.times do
+  FactoryBot.create(:review)
+end
+
+50.times do
+  FactoryBot.create(:shipping_location)
+end
+
+50.times do
+  FactoryBot.create(:question)
+end
+
+50.times do
+  FactoryBot.create(:answer)
+end
+
