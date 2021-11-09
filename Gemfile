@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hotwire-rails'
 gem 'vite_rails'
 gem 'devise'
+gem 'pundit', '~> 2.1', '>= 2.1.1'
