@@ -7,11 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 FactoryBot.create(:user)
+
 5.times do
+  FactoryBot.create(:category)
+end
+
+15.times do
   FactoryBot.create(:product)
 end
 
-20.times do
+
+30.times do
   FactoryBot.create(:review)
 end
 
@@ -26,4 +32,6 @@ end
 50.times do
   FactoryBot.create(:answer)
 end
+
+
 

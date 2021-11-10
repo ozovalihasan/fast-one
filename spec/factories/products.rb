@@ -5,5 +5,6 @@ FactoryBot.define do
     price { Faker::Number.decimal(l_digits: 2, r_digits: 2) }
     description { Faker::Lorem.paragraph }
     seller_id { User.ids.sample }
+    category_id { Category.ids.sample }
   end
 end
