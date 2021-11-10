@@ -1,4 +1,4 @@
-<% content_for :cart do %>
+<% if @cart %>
     <a href=<%= checks_order_items_path %> class="absolute right-4 float-right flex w-8" id="cart">
         <div class="icon-shopping-cart">
         </div>

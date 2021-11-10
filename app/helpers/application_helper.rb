@@ -6,4 +6,8 @@ module ApplicationHelper
       Order.create consumer_id: User.ids.sample
     end
   end
+
+  def set_cart
+    @cart = current_order
+  end
 end

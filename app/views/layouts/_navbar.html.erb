@@ -1,16 +1,16 @@
 <nav class="h-16 flex space-x-7 items-center justify-center px-96 border-b"  >
-    <a href="/" class="btn flex-1 text-center text-shadow-md shadow-none">
+    <a href=<%= root_path %> class="btn flex-1 text-center text-shadow-md shadow-none">
         Home
     </a>
     <div class="btn flex-1 text-center">
         About
     </div>
-    <div class="btn flex-1 text-center">
+    <a href=<%= products_path %> class="btn flex-1 text-center text-shadow-md shadow-none">
         Products
-    </div>
+    </a>
     <div class="btn flex-1 text-center">
         Contact
     </div>
-    <%= yield :cart %>
+    <%= render "cart/cart" %>
 
 </nav>
