@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "products" do %>
+    <div class="flex flex-wrap justify-center" id="products">
+        <%= render partial: "products/product", collection: @products %>
+    </div>
+<% end %>
