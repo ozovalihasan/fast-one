@@ -1,10 +1,11 @@
 module ApplicationHelper
   def current_order
-    if session[:order_id]
-      Order.find(session[:order_id])
-    else
-      Order.create consumer_id: User.ids.sample
+    order = Order.find_by id: session[:order_id]
+    unless order
+      order = Order.create consumer_id: User.ids.sample
+      session[:order_id] = order.id
     end
+    order
   end
 
   def set_cart

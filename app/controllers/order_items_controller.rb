@@ -2,7 +2,6 @@ class OrderItemsController < ApplicationController
   def create
     @cart = current_order
     @order_item = @cart.order_items.create order_item_params
-    session[:order_id] = @cart.id
     respond_to do |format|
       format.turbo_stream 
     end
