@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.search_name(params[:search_term])
+    @products = Product.search(params[:search_term]).includes(:reviews)
     respond_to do |format|
       format.turbo_stream 
     end
