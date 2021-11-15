@@ -1,3 +1,13 @@
-<%= form_with url: search_products_path, data: { controller: "search-form", search_form_target: "form" } do |form| %>
-    <%= form.text_field 'search_term', data: { action: "input->search-form#search" }, placeholder: 'Enter search terms...', class: "bg-first-300" %>
-<% end %>
+<div
+    data-controller="search-form"
+    data-search-form-url-value="<%= products_url %>"
+    data-search-form-origin-value="search-form"
+>
+    <input 
+        type="text" 
+        data-action="input->search-form#search" 
+        data-search-form-target="input"  
+        placeholder='Enter search terms...' 
+        class="bg-first-300" 
+    >
+</div>
