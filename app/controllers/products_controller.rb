@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_cart, only: [:index, :show]
   
   def index
-    @products = Product.includes(:reviews)
+    @page = params[:page] || 1
+    @pagy, @products = pagy(Product.includes(:reviews), page: @page)
   end
 
   def show

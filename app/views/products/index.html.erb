@@ -1,5 +1,12 @@
 <%= render "products/search_form" %>
 
-<div class="flex flex-wrap justify-center" id="products">
-    <%= render @products %>
+<div
+    id="products"
+    class="flex flex-wrap justify-center"
+    data-controller="pagination"
+    data-pagination-url-value="<%= products_url %> "
+    data-pagination-page-value="<%= 2 %>"
+    data-pagination-request-value="false"
+>
+    <%= render 'products/infinite_scroll' %>
 </div>

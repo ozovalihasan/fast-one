@@ -5,8 +5,10 @@ import { application } from "./application"
 
 import CounterController from "./counter_controller"
 import SearchFormController from "./search_form_controller"
+import PaginationController from "./pagination_controller"
 import { Alert, Tabs } from "tailwindcss-stimulus-components"
 application.register("counter", CounterController)
 application.register("search-form", SearchFormController)
+application.register("pagination", PaginationController)
 application.register("alert", Alert)
 application.register("tabs", Tabs)

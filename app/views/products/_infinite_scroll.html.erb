@@ -1,0 +1,4 @@
+<%= render @products %>
+<% if @page.to_i == @pagy.last %>
+    <span class="hidden" data-pagination-target="lastPage"></span>
+<% end %>
