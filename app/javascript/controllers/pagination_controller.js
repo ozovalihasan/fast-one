@@ -6,6 +6,7 @@ export default class extends Controller {
     url: String,
     page: Number,
     request: Boolean,
+    searchTerm: String,
   };
 
   static targets = [ "lastPage" ]
@@ -16,7 +17,11 @@ export default class extends Controller {
   }
 
   connect() {
-     document.addEventListener("scroll", this.scroll);
+    document.addEventListener("scroll", this.scroll);
+  }
+
+  disconnect(){
+    document.removeEventListener("scroll", this.scroll);
   }
 
   scroll() {
@@ -28,6 +33,9 @@ export default class extends Controller {
   async _fetchNewPage() {
     const url = new URL(this.urlValue);
     url.searchParams.set('page', this.pageValue)
+    if (this.searchTermValue){
+      url.searchParams.set('search_term', this.searchTermValue)
+    }
     this.requestValue = true;
     await get(url.toString(), {
       responseKind: 'turbo-stream'
