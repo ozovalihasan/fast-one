@@ -7,6 +7,7 @@ export default class extends Controller {
     page: Number,
     request: Boolean,
     searchTerm: String,
+    category: Number,
   };
 
   static targets = [ "lastPage" ]
@@ -35,6 +36,9 @@ export default class extends Controller {
     url.searchParams.set('page', this.pageValue)
     if (this.searchTermValue){
       url.searchParams.set('search_term', this.searchTermValue)
+    }
+    if (this.categoryValue){
+      url.searchParams.set('category', this.categoryValue)
     }
     this.requestValue = true;
     await get(url.toString(), {
