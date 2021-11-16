@@ -1,0 +1,20 @@
+<%= 
+    collection_select(
+        :category, 
+        :id, 
+        @categories, 
+        :id, 
+        :name, 
+        { 
+            include_blank: "Select category",
+        }, 
+        { 
+            selected: @category&.id, 
+            data: { 
+                "search-form-target": "category", 
+                action: "change->search-form#search" 
+            },
+            class: "bg-first-300 p-3 ml-3 w-1/2 rounded-lg placeholder-white outline-none"
+        }
+    ) 
+%>

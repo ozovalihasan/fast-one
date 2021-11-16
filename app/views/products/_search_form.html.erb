@@ -1,14 +1,7 @@
-<div
-    class="p-3"
-    data-controller="search-form"
-    data-search-form-url-value="<%= products_url %>"
-    data-search-form-origin-value="search-form"
+<input 
+    type="text" 
+    data-action="input->search-form#search" 
+    data-search-form-target="input"  
+    placeholder='Enter search terms...' 
+    class="bg-first-300 p-3 px-6 w-1/2 mr-3 rounded-lg placeholder-white outline-none" 
 >
-    <input 
-        type="text" 
-        data-action="input->search-form#search" 
-        data-search-form-target="input"  
-        placeholder='Enter search terms...' 
-        class="bg-first-300 p-3 rounded-3xl placeholder-white outline-none" 
-    >
-</div>

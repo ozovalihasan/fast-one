@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def index
     @page = params[:page] || 1
     @search_term = params[:search_term]
-    @category = Category.find params[:category] if params[:category]
+    @category = Category.find params[:category] if params[:category]&.present?
     products = if @search_term && !@search_term.empty?
       if @category
         @category.products.search(@search_term).includes(:reviews)
@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
       end
     end
     @origin = params[:origin]
-    
+    @categories = Category.all
     @pagy, @products = pagy(products, page: @page)
   end
 
