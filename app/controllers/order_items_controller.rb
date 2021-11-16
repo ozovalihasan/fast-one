@@ -1,6 +1,7 @@
 class OrderItemsController < ApplicationController
+  before_action :set_cart, only: [:create, :update]
+  
   def create
-    @cart = current_order
     @order_item = @cart.order_items.create order_item_params
     respond_to do |format|
       format.turbo_stream 
@@ -8,7 +9,6 @@ class OrderItemsController < ApplicationController
   end
 
   def update
-    @cart = current_order
     @order_item = OrderItem.find params[:id]
     @order_item.update quantity: (@order_item.quantity + order_item_params["quantity"].to_i)
     respond_to do |format|
