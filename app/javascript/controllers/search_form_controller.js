@@ -21,8 +21,6 @@ export default class extends Controller {
     const url = new URL(this.urlValue);
     url.searchParams.set('search_term', this.inputTarget.value)
     url.searchParams.set('origin', this.originValue)
-    console.warn(this.originValue);
-    console.warn("hasan");
     await get(url.toString(), {
       responseKind: 'turbo-stream'
     });
