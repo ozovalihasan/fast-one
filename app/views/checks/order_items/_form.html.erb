@@ -16,8 +16,8 @@
             <% end %>
         <% end %>
     <% else %>
-        <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-first-300 rounded-full border" do %>
-            <div class="icon-trash "></div>
+        <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-error-500 rounded-full border" do %>
+            <div class="icon-trash bg-error-500"></div>
         <% end %>
     <% end %>
 </div>

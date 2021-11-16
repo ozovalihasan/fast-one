@@ -26,6 +26,10 @@ export default defineConfig({
         third: colors.yellow, 
         fourth: colors.red, 
         fifth: colors.green, 
+        warning: colors.orange,
+        error: colors.red,
+        success: colors.green,
+        info: colors.sky
       },
       borderColor: theme => ({
         DEFAULT: theme('colors.gray.200', 'currentColor'),
