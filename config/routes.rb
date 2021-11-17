@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :sellers
+  devise_for :consumers
+  devise_for :admins
 
   resources :categories, only: [:index, :show ]
   resources :categories do
     resources :products, only: [:index]  
   end
 
-  resources :products, only: [:index, :show ]
+  resources :products, only: [:index, :show, :new ]
 
   resources :order_items, only: [:create, :update, :destroy ]
   

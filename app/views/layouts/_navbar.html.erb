@@ -11,6 +11,13 @@
     <div class="btn flex-1 text-center">
         Contact
     </div>
+
     <%= render "cart/cart" %>
+
+    <% if signed_in_user? %>
+        <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete %>
+    <% else %>
+        <%= link_to "Sign In", new_consumer_session_path %>
+    <% end %>
 
 </nav>

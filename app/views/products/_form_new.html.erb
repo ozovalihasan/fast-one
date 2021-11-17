@@ -1,0 +1,48 @@
+<%= form_with(model: product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, class: "bg-first-100" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "bg-first-100" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: "bg-first-100" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "bg-first-100" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id %>
+    <%# <%= f.select  :category, 
+        options_from_collection_for_select(@categories, :id, :name, "1")
+        %> %>
+    <%= f.select :category_id, 
+      # [["Berlin", "1"], ["Chicago", "2"], ["Madrid", "3"]], selected: "1" 
+      options_from_collection_for_select(@categories, "id", "name")
+      %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

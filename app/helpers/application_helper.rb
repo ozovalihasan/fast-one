@@ -13,4 +13,12 @@ module ApplicationHelper
   def set_cart
     @cart = current_order
   end
+
+  def signed_in_user
+    current_seller || current_consumer || current_admin
+  end
+
+  def signed_in_user?
+    signed_in_user.present?
+  end
 end
