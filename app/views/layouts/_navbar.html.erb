@@ -2,22 +2,22 @@
     <a href=<%= root_path %> class="btn flex-1 text-center text-shadow-md shadow-none">
         Home
     </a>
-    <div class="btn flex-1 text-center">
+    <div class="btn flex-1">
         About
     </div>
-    <a href=<%= products_path %> class="btn flex-1 text-center text-shadow-md shadow-none">
+    <a href=<%= products_path %> class="btn flex-1">
         Products
     </a>
-    <div class="btn flex-1 text-center">
+    <div class="btn flex-1">
         Contact
     </div>
 
-    <%= render "cart/cart" %>
-
     <% if signed_in_user? %>
-        <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete %>
+        <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "btn flex-1" %>
     <% else %>
-        <%= link_to "Sign In", new_consumer_session_path %>
+        <%= link_to "Sign In", new_consumer_session_path, class: "btn flex-1" %>
     <% end %>
+
+    <%= render "cart/cart" %>
 
 </nav>

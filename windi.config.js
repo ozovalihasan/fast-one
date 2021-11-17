@@ -12,7 +12,7 @@ export default defineConfig({
   },
   darkMode: 'class',
   shortcuts: {
-    'btn': 'py-2 px-4 font-semibold rounded-lg text-shadow-md',
+    'btn': 'py-2 px-4 font-semibold rounded-lg text-shadow-md bg-transparent cursor-pointer text-center',
     'center-content': 'flex items-center justify-center'
   },
   theme: {
