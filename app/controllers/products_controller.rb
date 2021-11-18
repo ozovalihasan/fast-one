@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_seller!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_cart, only: [:index, :show]
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :check_authorization, only: %i[ new create edit update destroy ]
