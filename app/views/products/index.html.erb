@@ -1,3 +1,5 @@
+
+
 <div 
     class="items-center flex justify-center items-stretch m-3"
     data-controller="search-form" 
@@ -8,4 +10,15 @@
     <%= render "products/category_list" %>
 </div>
 
-<%= render 'products/list' %>
+<% if @products.empty? %>
+    <div class="text-center w-full" id="products">
+        There is no result to show
+        <% if @category %>
+            in <%= @category.name %>
+        <% end %>
+        .
+    </div>
+<% else %>
+    <%= render 'products/list' %>
+<% end %>
+

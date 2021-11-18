@@ -7,13 +7,18 @@
             <%= product.name %>
         </div>
     <% end %>
-    <div>
-        $ <%= product.price %>
+    <div class="m-4">
+        <div>
+            $ <%= product.price %>
+        </div>
+        <div>
+            <%= product.average_star %> - <%= product.reviews.length %>
+        </div>
+        
+        <% if current_seller %>
+            <%= link_to "Edit", edit_product_path(product), class: "bg-first-200 p-3 rounded-lg block" %>
+        <% end %>
     </div>
-    <div>
-        <%= product.average_star %> - <%= product.reviews.length %>
-    </div>
-    
 </div>
 
 

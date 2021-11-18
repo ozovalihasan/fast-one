@@ -2,7 +2,11 @@
     <%= turbo_stream.replace "products" do %>
         <% if @products.empty? %>
             <div class="text-center w-full" id="products">
-                No result for "<%= params[:search_term] %>"
+                There is no result for "<%= params[:search_term] %>"
+                <% if @category %>
+                    in <%= @category.name %>
+                <% end %>
+                .
             </div>
         <% else %>
             <%= render 'products/list' %>

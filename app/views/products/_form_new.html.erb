@@ -33,13 +33,7 @@
 
   <div class="field">
     <%= f.label :category_id %>
-    <%# <%= f.select  :category, 
-        options_from_collection_for_select(@categories, :id, :name, "1")
-        %> %>
-    <%= f.select :category_id, 
-      # [["Berlin", "1"], ["Chicago", "2"], ["Madrid", "3"]], selected: "1" 
-      options_from_collection_for_select(@categories, "id", "name")
-      %>
+    <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name"), selected: product.category_id %>
   </div>
 
   <div class="actions">

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_seller!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_cart, only: [:index, :show]
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :check_authorization, only: %i[ new create edit update destroy ]
 
   def index
     @page = params[:page] || 1
@@ -19,6 +20,10 @@ class ProductsController < ApplicationController
       else
         Product.includes(:reviews)
       end
+    end
+    if current_seller
+      products = products.where("seller_id = ?", current_seller.id)
+      @product = Product.new
     end
     @origin = params[:origin]
     @categories = Category.all
@@ -38,6 +43,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find params[:id]
+    @categories = Category.all
   end
   
   def create
@@ -63,6 +70,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy
+    respond_to do |format|
+      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
+    end
   end
 
   private
@@ -73,6 +84,12 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:quantity, :name, :price, :description, :category_id)
+  end
+
+  def check_authorization
+    return true if admin_signed_in?    
+    return false unless seller_signed_in?
+    return false if @product && @product.seller != current_seller
   end
 
 end
