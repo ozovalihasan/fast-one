@@ -12,11 +12,12 @@
   </head>
 
   <body class="dark">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <div id="alert">    </div>
-    <div id="notice" class="fixed inset-x-0 bottom-0 flex flex-col items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none"> </div>
+    <div id="notice" class="fixed inset-x-0 bottom-0 flex flex-col items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none"> 
+      <% flash.each do |type, msg| %>
+        <%= render partial: "layouts/alert", locals: { information: msg } %>
+      <% end %>
+    </div>
     <%= render 'layouts/navbar' %>
     <%= yield %>
     <button data-controller="back-top" data-action="click->back-top#scrollTop" data-back-top-target="button" class="fixed bottom-16 right-16 rounded-lg focus:outline-none" > 
