@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :consumers
   devise_for :admins
 
-  resources :categories, only: [:index, :show ]
   resources :categories do
     resources :products, only: [:index]  
   end

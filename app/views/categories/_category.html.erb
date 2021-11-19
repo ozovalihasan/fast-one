@@ -1,5 +1,5 @@
-<div class="m-7 shadow-xl border ">
-    <%= link_to products_path(category: category.id), class: "flex" do %>
+<div id=<%= dom_id category %> class="m-7 shadow-xl border w-5/12 relative">
+    <%= link_to products_path(category: category.id), class: "flex relative" do %>
         <div class="shadow-fifth-900 h-52 w-52 bg-fourth-200">
             category_image_here
         </div>
@@ -7,5 +7,20 @@
             <%= category.name %>
         </div>
     <% end %>
-</div>
 
+    <% if admin_signed_in? %>
+        <div class="flex w-1/2 ml-auto transform h-auto absolute right-0 bottom-0 ">
+            <div class="flex-1 ml-auto mx-3">
+                <%= link_to edit_category_path(category), class: "bg-first-200 p-3 rounded-lg block w-full text-center px-3" do %>
+                    Edit
+                <% end %>
+            </div>
+
+            <div class="flex-1 mx-3">
+                <%= button_to category_path(category), class: "bg-first-200 p-3 rounded-lg block w-full text-center px-3 ", method: :delete do %>
+                    Remove
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>

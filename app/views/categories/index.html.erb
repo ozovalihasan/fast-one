@@ -1,1 +1,11 @@
-<%= render @categories %>
+<div class="flex flex-wrap justify-center" >
+    <% if admin_signed_in? %>
+        <%= link_to  new_category_path, class: "h-52 w-5/12 m-7 bg-first-200 center-content rounded-lg flex-col" do %>
+            <div class="icon-math-plus m-3 icon-md"></div>
+            <div class="">Add Category</div>
+        <% end %>
+    
+    <% end %>
+    
+    <%= render @categories %>
+</div>
