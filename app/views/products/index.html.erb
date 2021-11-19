@@ -11,13 +11,25 @@
 </div>
 
 <% if @products.empty? %>
-    <div class="text-center w-full" id="products">
-        There is no result to show
-        <% if @category %>
-            in <%= @category.name %>
+    <div class="flex">
+
+        <% if seller_signed_in? || admin_signed_in? %>
+            <%= link_to  new_product_path(@product), class: "w-1/2 h-52 m-7 bg-first-200 center-content rounded-lg flex-col" do %>    
+                <div class="icon-math-plus m-3 icon-md"></div>
+                <div class="">Add Product</div>
+            <% end %>
         <% end %>
-        .
+
+        <div class="text-center w-1/2" id="products">
+            There is no result to show
+            <% if @category %>
+                in <%= @category.name %>
+            <% end %>
+            .
+        </div>
+
     </div>
+
 <% else %>
     <%= render 'products/list' %>
 <% end %>

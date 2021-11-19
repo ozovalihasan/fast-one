@@ -18,7 +18,27 @@
                 <%= @product.shipping_locations.pluck(:name).join(", ") %>
             </div>
 
-            <%= render partial:'products/form_pieces', locals: { order_item: @order_item} %>
+            <% if seller_signed_in? || admin_signed_in? %>
+
+                <div class="flex-1 flex transform ">
+                    <div class="flex-1 ml-auto mx-3">
+                        <%= link_to edit_product_path(@product), class: "bg-first-200 p-3 rounded-lg block" do %>
+                            Edit
+                        <% end %>
+                    </div>
+
+                    <div class="flex-1 mx-3">
+                        <%= button_to product_path( @product ), method: :delete, class: "bg-first-200 p-3 rounded-lg block" do %>
+                            Remove
+                        <% end %>
+                    </div>
+                </div>
+                
+            <% else %>
+                <%= render partial:'products/form_pieces', locals: { order_item: @order_item} %>
+            <% end %>
+
+                        
         </div>
     
     </div>
