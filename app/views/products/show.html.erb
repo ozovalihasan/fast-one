@@ -18,7 +18,7 @@
                 <%= @product.shipping_locations.pluck(:name).join(", ") %>
             </div>
 
-            <%= render partial:'products/form', locals: { order_item: @order_item} %>
+            <%= render partial:'products/form_pieces', locals: { order_item: @order_item} %>
         </div>
     
     </div>
