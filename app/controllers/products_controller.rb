@@ -37,8 +37,12 @@ class ProductsController < ApplicationController
   end
   
   def new
-    @product = Product.new
     @categories = Category.all
+    @product = @categories.first.products.new
+    if admin_signed_in?
+      @sellers = Seller.all
+      @product.seller = Seller.first
+    end
   end
 
   def edit
@@ -47,7 +51,9 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    @product.seller = current_seller
+    if current_seller
+      @product.seller = current_seller
+    end
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: "Product was successfully created." }
@@ -82,7 +88,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:quantity, :name, :price, :description, :category_id)
+    params.require(:product).permit(:quantity, :name, :price, :description, :category_id, :seller_id)
   end
 
   def check_authorization
