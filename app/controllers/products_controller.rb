@@ -71,6 +71,7 @@ class ProductsController < ApplicationController
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
+      format.turbo_stream
     end
   end
 
