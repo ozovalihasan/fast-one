@@ -5,6 +5,6 @@
     <%= render partial: "cart/cart_counter" %>
 <% end %>
 <%= turbo_stream.replace "order-item-form" do %>
-    <%= render partial: "products/form", locals: { order_item: @order_item} %>
+    <%= render partial: "products/form_pieces", locals: { order_item: @order_item} %>
 <% end %>
 
