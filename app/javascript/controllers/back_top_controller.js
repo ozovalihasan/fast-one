@@ -22,7 +22,6 @@ export default class extends Controller {
   }
 
   scroll() {
-    console.warn(this.buttonTarget);
     if (document.documentElement.scrollTop > 50){
       this.buttonTarget.classList.remove("hidden")
     }else{
