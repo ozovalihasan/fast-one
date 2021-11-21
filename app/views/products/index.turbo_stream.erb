@@ -1,4 +1,4 @@
-<% if @origin == "search-form"  %>
+<% if @page == 1  %>
     <%= turbo_stream.replace "products" do %>
         <% if @products.empty? %>
             <div class="text-center w-full" id="products">
@@ -12,7 +12,7 @@
             <%= render 'products/list' %>
         <% end %>
     <% end %>
-<% elsif @origin == "pagination" %>
+<% else %>
     <%= turbo_stream.append "products" do %>
         <%= render 'products/infinite_scroll' %>
     <% end %>

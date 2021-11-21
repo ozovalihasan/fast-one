@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
       products = products.where("seller_id = ?", current_seller.id)
       @product = Product.new
     end
-    @origin = params[:origin]
+    
     @categories = Category.all
     @pagy, @products = pagy(products, page: @page)
   end

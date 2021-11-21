@@ -8,7 +8,6 @@ export default class extends Controller {
     request: Boolean,
     searchTerm: String,
     category: Number,
-    origin: String,
   };
 
   static targets = [ "lastPage" ]
@@ -41,7 +40,6 @@ export default class extends Controller {
     if (this.categoryValue){
       url.searchParams.set('category', this.categoryValue)
     }
-    url.searchParams.set('origin', this.originValue)
     this.requestValue = true;
     await get(url.toString(), {
       responseKind: 'turbo-stream'

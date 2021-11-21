@@ -7,7 +7,6 @@ export default class extends Controller {
   static values = {
     url: String,
     searchTerm: String,
-    origin: String,
   };
 
   search() {
@@ -20,7 +19,6 @@ export default class extends Controller {
   async _fetchNewPage() {
     const url = new URL(this.urlValue);
     url.searchParams.set('search_term', this.inputTarget.value)
-    url.searchParams.set('origin', this.originValue)
     url.searchParams.set('category', this.categoryTarget.value)
     await get(url.toString(), {
       responseKind: 'turbo-stream'
