@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_220657) do
+ActiveRecord::Schema.define(version: 2021_11_21_095416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_220657) do
   create_table "products", force: :cascade do |t|
     t.integer "quantity"
     t.string "name"
-    t.decimal "price"
+    t.decimal "price", precision: 6, scale: 2
     t.text "description"
     t.bigint "seller_id", null: false
     t.datetime "created_at", precision: 6, null: false
