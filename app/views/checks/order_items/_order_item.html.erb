@@ -18,7 +18,7 @@
         </div>
 
         <div class="items-center flex mx-16">
-            <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-error-500 rounded-full border" do %>
+            <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-error-500 rounded-full border", data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
                 <div class="icon-trash "></div>
             <% end %>
         </div>

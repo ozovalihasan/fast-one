@@ -16,7 +16,7 @@
             <% end %>
         <% end %>
     <% else %>
-        <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-error-500 rounded-full border" do %>
+        <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-error-500 rounded-full border", data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
             <div class="icon-trash bg-error-500"></div>
         <% end %>
     <% end %>

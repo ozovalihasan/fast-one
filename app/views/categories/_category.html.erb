@@ -17,7 +17,7 @@
             </div>
 
             <div class="flex-1 mx-3">
-                <%= button_to category_path(category), class: "bg-first-200 p-3 rounded-lg block w-full text-center px-3 ", method: :delete do %>
+                <%= button_to category_path(category), class: "bg-warning-400 p-3 rounded-lg block w-full text-center px-3 ", method: :delete, data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
                     Remove
                 <% end %>
             </div>
