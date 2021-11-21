@@ -12,7 +12,7 @@
             <%= render 'products/list' %>
         <% end %>
     <% end %>
-<% else %>
+<% elsif @origin == "pagination" %>
     <%= turbo_stream.append "products" do %>
         <%= render 'products/infinite_scroll' %>
     <% end %>
