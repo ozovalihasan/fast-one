@@ -1,5 +1,5 @@
 <%= turbo_stream.append "notice" do %>
-    <%= render partial: "layouts/alert", locals: { information: "#{@category.product.name} is removed." } %>
+    <%= render partial: "layouts/alert", locals: { information: "#{@category.name} is removed." } %>
 <% end %>
 
 <%= turbo_stream.remove dom_id @category %>
