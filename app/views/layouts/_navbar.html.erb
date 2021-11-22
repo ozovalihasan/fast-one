@@ -16,7 +16,25 @@
     </div>
     
     <% if signed_in_user? %>
-        <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "btn flex-1 whitespace-nowrap" %>
+        
+        <div data-controller="dropdown" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="relative block select-none">
+            <span class="appearance-none flex items-center inline-block text-gray-700">
+                <%= current_user.email %>
+            </span>
+            <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden z-10 w-full">
+                <div class="bg-white shadow rounded border overflow-hidden">
+                    <% if current_consumer %>
+                        <%= link_to 'Profile', edit_consumer_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap' %>
+                    <% elsif current_seller %>
+                        <%= link_to 'Profile', edit_seller_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap' %>
+                    <% elsif current_admin %>
+                        <%= link_to 'Profile', edit_admin_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap' %>
+                    <% end %>
+                    <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap cursor-pointer" %>
+                </div>
+            </div>
+        </div>
+
     <% else %>
         <%= link_to "Sign In", new_consumer_session_path, class: "btn flex-1 whitespace-nowrap" %>
     <% end %>
