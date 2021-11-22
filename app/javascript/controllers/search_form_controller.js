@@ -18,8 +18,15 @@ export default class extends Controller {
 
   async _fetchNewPage() {
     const url = new URL(this.urlValue);
-    url.searchParams.set('search_term', this.inputTarget.value)
-    url.searchParams.set('category', this.categoryTarget.value)
+
+    if (this.inputTarget.value){
+      url.searchParams.set('search_term', this.inputTarget.value)
+    }
+
+    if (this.categoryTarget.value) {
+      url.searchParams.set('category', this.categoryTarget.value)
+    }
+
     await get(url.toString(), {
       responseKind: 'turbo-stream'
     });
