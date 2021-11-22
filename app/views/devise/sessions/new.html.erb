@@ -25,12 +25,6 @@
   
   <%= render "devise/shared/links" %>
 
-  <% unless current_page? new_consumer_session_path %>
-    <div>
-      <%= link_to "Sign In as Consumer", new_consumer_session_path %>
-    </div>
-  <% end %>
-  
   <% unless current_page? new_seller_session_path %>
     <div class="mt-16 border-t py-8">
       <%= link_to "Sign In as Seller", new_seller_session_path, class: "btn-secondary w-full" %>
