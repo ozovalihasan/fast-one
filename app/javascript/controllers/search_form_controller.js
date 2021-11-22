@@ -30,6 +30,7 @@ export default class extends Controller {
     await get(url.toString(), {
       responseKind: 'turbo-stream'
     });
+    history.replaceState(history.state, '', url);
   }
     
 }

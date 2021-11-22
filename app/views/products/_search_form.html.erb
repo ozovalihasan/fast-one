@@ -2,6 +2,10 @@
     type="text" 
     data-action="input->search-form#search" 
     data-search-form-target="input"  
-    placeholder='Enter search terms...' 
-    class="bg-first-300 p-3 px-6 w-1/2 mr-3 rounded-lg placeholder-white outline-none" 
+    placeholder='Search products' 
+    class="bg-first-100 p-3 px-6 w-full mr-3 border border-r-0 rounded-l-full placeholder-black-900 outline-none" 
+    <% if @search_term %>
+        value=<%= @search_term %>        
+    <% end %>
+    
 >

@@ -6,6 +6,15 @@
         Products
     </a>
 
+    <div 
+        class="items-center flex justify-center items-stretch m-3 w-full"
+        data-controller="search-form" 
+        data-search-form-url-value="<%= products_url %>"
+    >
+        <div class="w-full"><%= render "products/search_form" %></div>
+        <%= render "products/category_list" %>
+    </div>
+    
     <% if signed_in_user? %>
         <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "btn flex-1" %>
     <% else %>

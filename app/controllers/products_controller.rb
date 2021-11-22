@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
       @product = Product.new
     end
     
-    @categories = Category.all
     @pagy, @products = pagy(products, page: @page)
   end
 
@@ -37,7 +36,6 @@ class ProductsController < ApplicationController
   end
   
   def new
-    @categories = Category.all
     @product = @categories.first.products.new
     if admin_signed_in?
       @sellers = Seller.all
@@ -46,7 +44,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
   end
   
   def create
