@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :sellers
-  devise_for :consumers
-  devise_for :admins
+  devise_for :sellers, controllers: {
+    sessions: 'sessions',
+    registrations: 'registrations',
+  }
+
+  devise_for :consumers, controllers: {
+    sessions: 'sessions',
+    registrations: 'registrations',
+  }
+  
+  devise_for :admins, controllers: {
+    sessions: 'sessions',
+    registrations: 'registrations',
+  }
 
   resources :categories do
     resources :products, only: [:index]  
