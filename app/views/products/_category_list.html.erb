@@ -6,7 +6,7 @@
         :id, 
         :name, 
         { 
-            include_blank: "Select category",
+            include_blank: "All categories",
         }, 
         { 
             selected: @category&.id, 
@@ -14,7 +14,7 @@
                 "search-form-target": "category", 
                 action: "change->search-form#search" 
             },
-            class: "bg-first-300 p-3 ml-3 w-1/2 rounded-lg placeholder-white outline-none"
+            class: "bg-first-100 p-3 rounded-r-full border border-l-3 placeholder-white outline-none "
         }
     ) 
 %>

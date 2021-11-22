@@ -16,9 +16,9 @@
     </div>
     
     <% if signed_in_user? %>
-        <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "btn flex-1" %>
+        <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "btn flex-1 whitespace-nowrap" %>
     <% else %>
-        <%= link_to "Sign In", new_consumer_session_path, class: "btn flex-1" %>
+        <%= link_to "Sign In", new_consumer_session_path, class: "btn flex-1 whitespace-nowrap" %>
     <% end %>
 
     <%= render "cart/cart" %>
