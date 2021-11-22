@@ -1,39 +1,40 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {data: { turbo: false}}) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
+<div class="mx-auto w-full w-128 p-4">
+  
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {data: { turbo: false}}) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-primary" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "input-primary" %>
+    </div>
+  
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+  
+    <div class="actions">
+      <%= f.submit "Log in", class: "btn-primary w-full my-4" %>
+    </div>
+  <% end %>
+  
+  <%= render "devise/shared/links" %>
+
+  <% unless current_page? new_consumer_session_path %>
+    <div>
+      <%= link_to "Sign In as Consumer", new_consumer_session_path %>
+    </div>
+  <% end %>
+  
+  <% unless current_page? new_seller_session_path %>
+    <div class="mt-16 border-t py-8">
+      <%= link_to "Sign In as Seller", new_seller_session_path, class: "btn-secondary w-full" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-
-<% unless current_page? new_consumer_session_path %>
-  <div>
-    <%= link_to "Sign In as Consumer", new_consumer_session_path %>
-  </div>
-<% end %>
-
-<% unless current_page? new_seller_session_path %>
-  <div>
-    <%= link_to "Sign In as Seller", new_seller_session_path %>
-  </div>
-<% end %>
+</div>
