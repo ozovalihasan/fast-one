@@ -1,16 +1,10 @@
-<nav class="h-16 flex space-x-7 items-center justify-center px-96 border-b"  >
-    <a href=<%= root_path %> class="btn flex-1 text-center text-shadow-md shadow-none">
+<nav class="h-16 flex space-x-7 items-center justify-center"  >
+    <a href=<%= root_path %> class="flex-1 text-center text-shadow-md shadow-none">
         Home
     </a>
-    <div class="btn flex-1">
-        About
-    </div>
-    <a href=<%= products_path %> class="btn flex-1">
+    <a href=<%= products_path %> class="flex-1 text-center text-shadow-md shadow-none ">
         Products
     </a>
-    <div class="btn flex-1">
-        Contact
-    </div>
 
     <% if signed_in_user? %>
         <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "btn flex-1" %>
