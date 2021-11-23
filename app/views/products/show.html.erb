@@ -20,16 +20,16 @@
 
             <% if seller_signed_in? || admin_signed_in? %>
 
-                <div class="flex-1 flex transform ">
-                    <div class="flex-1 ml-auto mx-3">
-                        <%= link_to edit_product_path(@product), class: "bg-first-200 p-3 rounded-lg block" do %>
+                <div class="flex-1 flex">
+                    <div class="flex-1 w-0 mx-3">
+                        <%= link_to edit_product_path(@product), class: "btn-primary w-full" do %>
                             Edit
                         <% end %>
                     </div>
 
-                    <div class="flex-1 mx-3">
-                        <%= button_to product_path( @product ), method: :delete, class: "bg-warning-400 p-3 rounded-lg block" do %>
-                            Remove
+                    <div class="flex-1 w-0 mx-3">
+                        <%= button_to product_path( @product ), method: :delete, class: "btn-warning w-full" do %>
+                            Delete
                         <% end %>
                     </div>
                 </div>

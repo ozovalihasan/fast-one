@@ -9,16 +9,16 @@
     <% end %>
 
     <% if admin_signed_in? %>
-        <div class="flex w-1/2 ml-auto transform h-auto absolute right-0 bottom-0 ">
-            <div class="flex-1 ml-auto mx-3">
-                <%= link_to edit_category_path(category), class: "bg-first-200 p-3 rounded-lg block w-full text-center px-3" do %>
+        <div class="flex w-1/2 ml-auto h-auto absolute right-0 bottom-0 ">
+            <div class="flex-1 w-0 mx-3">
+                <%= link_to edit_category_path(category), class: "btn-primary w-full" do %>
                     Edit
                 <% end %>
             </div>
 
-            <div class="flex-1 mx-3">
-                <%= button_to category_path(category), class: "bg-warning-400 p-3 rounded-lg block w-full text-center px-3 ", method: :delete, data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
-                    Remove
+            <div class="flex-1 w-0 mx-3">
+                <%= button_to category_path(category), class: "btn-warning w-full", method: :delete, data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
+                    Delete
                 <% end %>
             </div>
         </div>
