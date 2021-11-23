@@ -14,18 +14,18 @@
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
   integrity sha512-oHsJhgY2cip+K2ED7vKUNd2P+BEswVhrCYcJ802DSsblJFv7mPFVk3cQKvm2vHgHeDVdnj7oOKrBbzp1u8D+KA==
 
-"@hotwired/turbo-rails@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.0.1.tgz#d39816eef215e83468fa306a963e7c874ffe70f7"
-  integrity sha512-0cV7zG9aCzF/foidgfx6WvqKDcRKXJt2aT1fenNFywO7armGTD8S86V8U1IyUAHq+ZkIL26moc+AB40uTZt0oA==
+"@hotwired/turbo-rails@7.1.0-rc.3":
+  version "7.1.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.1.0-rc.3.tgz#9a63764ac6e6b33ce17e754222dfd25cc477c60e"
+  integrity sha512-cvgpHaT6f+BVgEP+7U9Ma69DaYWD0qcMtUBsbFngBCm6eXn9o6upTMH49tuUlrnGHLJkpoF/YdOjjC6RuqygEg==
   dependencies:
-    "@hotwired/turbo" "^7.0.1"
+    "@hotwired/turbo" "^7.1.0-rc.3"
     "@rails/actioncable" "^6.0.0"
 
-"@hotwired/turbo@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.0.1.tgz#2a8c6ab2f24914d1d47f3a7a7779e2881e8c61a0"
-  integrity sha512-awqraytYXbHV2NT0WAOnDDDGJeHHnFtnztdXvRuIqgsStUtPKM8B9H7ISm77SwbHemEjxEOB8Ku4RfNbEEXsPQ==
+"@hotwired/turbo@^7.1.0-rc.3":
+  version "7.1.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.1.0-rc.3.tgz#71aef3905a1095467746f8426ca657a80b434c43"
+  integrity sha512-0/6m8LtLTujhYnhGU/oFJIM4cgNl0us+JZ+Is4b3RDS8/Kh63tucnoDfLqs+JeoiTAnIYJmxy0owYmOkEIVVNQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -402,9 +402,9 @@ reusify@^1.0.4:
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
 rollup@^2.57.0:
-  version "2.60.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.60.0.tgz#4ee60ab7bdd0356763f87d7099f413e5460fc193"
-  integrity sha512-cHdv9GWd58v58rdseC8e8XIaPUo8a9cgZpnCMMDGZFDZKEODOiPPEQFXLriWr/TjXzhPPmG5bkAztPsOARIcGQ==
+  version "2.60.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.60.1.tgz#4b34cd247f09b421f10a3c9286eda2ecf9972079"
+  integrity sha512-akwfnpjY0rXEDSn1UTVfKXJhPsEBu+imi1gqBA1ZkHGydUnkV/fWCC90P7rDaLEW8KTwBcS1G3N4893Ndz+jwg==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -456,7 +456,7 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-vite-plugin-ruby@^3.0.0:
+vite-plugin-ruby@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/vite-plugin-ruby/-/vite-plugin-ruby-3.0.3.tgz#e5fcbeaafe28c4b2a448af3a20fcbaa44c81d6b9"
   integrity sha512-RZMYOmhGwWwyDh00YIwKV2tO377Pqeke1bk3XJS5hBRGUnS5qgHLp6bqZH9yeLCxmlJ5kgWUzNkDmDDhV2BmNQ==
@@ -482,7 +482,7 @@ vite-plugin-windicss@^1.4.12:
     debug "^4.3.2"
     windicss "^3.2.1"
 
-vite@^2.5.0:
+vite@^2.6.13:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.6.14.tgz#35c09a15e4df823410819a2a239ab11efb186271"
   integrity sha512-2HA9xGyi+EhY2MXo0+A2dRsqsAG3eFNEVIo12olkWhOmc8LfiM+eMdrXf+Ruje9gdXgvSqjLI9freec1RUM5EA==
