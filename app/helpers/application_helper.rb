@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def current_user
-    current_consumer || current_seller || current_admin?
+    current_consumer || current_seller || current_admin
   end
 
 end
