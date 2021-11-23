@@ -24,13 +24,13 @@
             <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden z-10 w-full">
                 <div class="bg-white shadow rounded border overflow-hidden">
                     <% if current_consumer %>
-                        <%= link_to 'Profile', edit_consumer_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap' %>
+                        <%= link_to 'Profile', edit_consumer_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap w-full' %>
                     <% elsif current_seller %>
-                        <%= link_to 'Profile', edit_seller_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap' %>
+                        <%= link_to 'Profile', edit_seller_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap w-full' %>
                     <% elsif current_admin %>
-                        <%= link_to 'Profile', edit_admin_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap' %>
+                        <%= link_to 'Profile', edit_admin_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap w-full' %>
                     <% end %>
-                    <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap cursor-pointer" %>
+                    <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap w-full cursor-pointer" %>
                 </div>
             </div>
         </div>
