@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   devise_for :admins, controllers: {
     sessions: 'sessions',
-    registrations: 'registrations',
+    registrations: 'admins/registrations',
   }
 
   resources :categories do
