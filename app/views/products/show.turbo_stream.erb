@@ -1,0 +1,58 @@
+<%= turbo_stream.append "notice" do %>
+     <% flash.each do |type, msg| %>
+        <%= render partial: "layouts/alert", locals: { information: msg } %>
+      <% end %>
+<% end %>
+
+<%= turbo_stream.replace "primary" do %>
+    
+    <turbo-frame id="primary" data-turbo-action="advance">
+        <div class="m-8">
+            <div class="shadow-xl border flex">
+                <div class="shadow-fifth-900 h-96  bg-fourth-200 flex-1">
+                    image_here
+                </div>
+                <div class="flex-1 m-6">
+                    <div class="text-center p-2">
+                        <%= @product.name %>
+                    </div>
+                    <div>
+                        $ <%= @product.price %>
+                    </div>
+                    <div>
+                        <%= @product.average_star %>
+                    </div>
+        
+                    <div>
+                        <%= @product.shipping_locations.pluck(:name).join(", ") %>
+                    </div>
+
+                    <% if seller_signed_in? || admin_signed_in? %>
+
+                        <div class="flex-1 flex">
+                            <div class="flex-1 w-0 mx-3">
+                                <%= link_to edit_product_path(@product), method: :post, class: "btn-primary w-full" do %>
+                                    Edit
+                                <% end %>
+                            </div>
+
+                            <div class="flex-1 w-0 mx-3">
+                                <%= button_to product_path( @product ), method: :delete, class: "btn-warning w-full", data: { "turbo-frame": :primary } do %>
+                                    Delete
+                                <% end %>
+                            </div>
+                        </div>
+                        
+                    <% else %>
+                        <%= render partial:'products/form_pieces', locals: { order_item: @order_item} %>
+                    <% end %>
+
+                            
+                </div>
+            
+            </div>
+            
+            <%= render 'products/tabs' %>
+        </div>
+    </turbo-frame>
+<% end %>

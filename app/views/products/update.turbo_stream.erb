@@ -1,0 +1,15 @@
+<%= turbo_stream.replace dom_id @product do %>
+  <% if URI(request.referer).path == products_path %>
+    <%= render partial: "products/product", locals: { product: @product } %>  
+  <% else %>
+    <%= render partial: 'products/product_show', locals: { product: @product } %>
+  <% end %>
+  
+<% end %>
+
+<%= turbo_stream.append "notice" do %>
+     <% flash.each do |type, msg| %>
+        <%= render partial: "layouts/alert", locals: { information: msg } %>
+      <% end %>
+<% end %>
+

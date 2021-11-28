@@ -1,6 +1,6 @@
 <% unless admin_signed_in? || seller_signed_in? %>
     <% if @cart %>
-        <a href=<%= checks_order_items_path %> data-turbo-permanent class="relative right-4 float-right flex w-8" id="cart">
+        <a href=<%= checks_order_items_path %> data-turbo-permanent class="relative right-4 float-right flex w-8" id="cart"  data-turbo-frame="primary">
             <div class="icon-shopping-cart">
             </div>
             <%= render "cart/cart_counter" %>

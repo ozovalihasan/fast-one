@@ -1,5 +1,3 @@
-<h1>New Product</h1>
-
-<%= render 'form', product: @product %>
-
-<%= link_to 'Back', products_path %>
+<turbo-frame id="modal" >
+    <%= render partial: 'products/form', locals: {product: @product} %>
+</turbo-frame>

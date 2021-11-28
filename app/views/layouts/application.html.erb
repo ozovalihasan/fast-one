@@ -18,12 +18,28 @@
         <%= render partial: "layouts/alert", locals: { information: msg } %>
       <% end %>
     </div>
-    <%= render 'layouts/navbar' %>
-    <%= yield %>
-    <button data-controller="back-top" data-action="click->back-top#scrollTop" data-back-top-target="button" class="fixed bottom-16 right-16 rounded-lg focus:outline-none" > 
-      <div class="icon-chevron-double-up icon-lg outline-none animate-pulse">
+    
+    <div 
+      data-controller="modal" 
+      data-modal-prevent-default-action-closing="false"
+      data-modal-prevent-default-action-opening="false"
+    >
+      <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center z-9999">
+        <div class="max-h-screen w-full max-w-lg relative">
+          <div class="p-8 bg-white rounded shadow">
+            <turbo-frame id="modal" >
+              <div class="hidden top-0 left-0"></div>
+            </turbo-frame>
+          </div>
+        </div>
       </div>
+      <%= render 'layouts/navbar' %>
+      <%= yield %>
+      <button data-controller="back-top" data-action="click->back-top#scrollTop" data-back-top-target="button" class="fixed bottom-16 right-16 rounded-lg focus:outline-none" > 
+        <div class="icon-chevron-double-up icon-lg outline-none animate-pulse">
+        </div>
 
-    </button>
+      </button>
+    </div>
   </body>
 </html>

@@ -1,16 +1,13 @@
+<%= turbo_stream.append "notice" do %>
+     <% flash.each do |type, msg| %>
+        <%= render partial: "layouts/alert", locals: { information: msg } %>
+      <% end %>
+<% end %>
+
+
 <% if @page == 1  %>
-    <%= turbo_stream.replace "products" do %>
-        <% if @products.empty? %>
-            <div class="text-center w-full" id="products">
-                There is no result for "<%= params[:search_term] %>"
-                <% if @category %>
-                    in <%= @category.name %>
-                <% end %>
-                .
-            </div>
-        <% else %>
-            <%= render 'products/list' %>
-        <% end %>
+    <%= turbo_stream.replace "primary" do %>
+        <%= render 'products/list' %>
     <% end %>
 <% else %>
     <%= turbo_stream.append "products" do %>

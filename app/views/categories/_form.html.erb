@@ -1,5 +1,5 @@
 <%= form_with(model: category) do |f| %>
-
+  
   <% if category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -12,13 +12,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field flex flex-col">
     <%= f.label :name %>
     <%= f.text_field :name, class: "bg-first-100" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions w-full mx-auto center-content mt-4">
+    <% if category.id.present? %>
+      <%= f.submit "Update", class: "btn-primary"  %>
+    <% else %>
+      <%= f.submit "Create", class: "btn-primary"  %>
+    <% end %>
+    
   </div>
   
 <% end %>

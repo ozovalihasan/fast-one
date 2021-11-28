@@ -3,6 +3,7 @@ import colors from 'windicss/colors'
 import icons from '@windicss/plugin-icons'
 
 export default defineConfig({
+  attributify: true,
   extract: {
     include: [
       'app/views/**/*.{html,erb}',

@@ -1,0 +1,8 @@
+<a 
+    href=<%= product ? edit_product_path(product) : new_product_path %> 
+    data-action="click->modal#open" 
+    class="btn-primary " 
+    data-turbo-frame="modal"
+>
+    <%= button_name %>
+</a>

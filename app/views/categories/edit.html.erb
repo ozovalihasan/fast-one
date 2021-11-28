@@ -1,5 +1,5 @@
-
-<%= render 'form', category: @category %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<turbo-frame id=<%= dom_id @category %>  >
+    <div class="h-52  bg-first-white center-content rounded-lg flex-col">
+        <%= render 'form', category: @category %>
+    </div>
+</turbo-frame>

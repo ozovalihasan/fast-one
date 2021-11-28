@@ -23,9 +23,14 @@ class ProductsController < ApplicationController
     if current_seller
       products = products.where("seller_id = ?", current_seller.id)
       @product = Product.new
+      @product = @categories.first.products.new
     end
-    
+    if admin_signed_in? || seller_signed_in?
+      @product = Product.new
+      @product = @categories.first.products.new
+    end
     @pagy, @products = pagy(products, page: @page)
+
   end
 
   def show
@@ -34,9 +39,11 @@ class ProductsController < ApplicationController
       @order_item = @cart.order_items.new product_id: @product.id
     end
   end
+
   
   def new
-    @product = @categories.first.products.new
+    category = find_category_from_referrer || Category.first 
+    @product = category.products.new
     if admin_signed_in?
       @sellers = Seller.all
       @product.seller = Seller.first
@@ -44,6 +51,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if admin_signed_in?
+      @sellers = Seller.all
+    end
   end
   
   def create
@@ -53,7 +63,8 @@ class ProductsController < ApplicationController
     end
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: "Product was successfully created." }
+        flash[ :notice ] = "Product was successfully created."
+        format.turbo_stream 
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -63,7 +74,8 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: "Product was successfully updated." }
+        flash[ :notice ] = "Product was successfully updated."
+        format.turbo_stream 
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -72,9 +84,11 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+
     respond_to do |format|
-      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
-      format.turbo_stream
+      format.turbo_stream 
+      format.html {  redirect_to action: 'index', status: 303 }
+
     end
   end
 
@@ -94,4 +108,17 @@ class ProductsController < ApplicationController
     return false if @product && @product.seller != current_seller
   end
 
+  def find_category_from_referrer
+    category = nil
+
+    if URI(request.referrer).query
+      query_params = URI::decode_www_form( URI(request.referrer).query ).to_h
+      if query_params["category"]
+        category = Category.find_by id: query_params["category"]
+      end
+    end
+    
+    category
+  end
+  
 end

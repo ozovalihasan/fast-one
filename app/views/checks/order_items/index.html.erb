@@ -1,33 +1,35 @@
-<div class="flex">
-    <div class="w-8/12" >
-        <div id="order_items_list">
-            <% if @cart.order_items.empty? %>
-                <%= render partial: "checks/order_items/no_item"%>
-            <% else %>
-                <%= render partial: "checks/order_items/order_item", collection: @cart.order_items %>
-            <% end %>
-        </div>
+<turbo-frame id="primary" data-turbo-action="advance">
+    <div class="flex">
+        <div class="w-8/12" >
+            <div id="order_items_list">
+                <% if @cart.order_items.empty? %>
+                    <%= render partial: "checks/order_items/no_item"%>
+                <% else %>
+                    <%= render partial: "checks/order_items/order_item", collection: @cart.order_items.includes(:product    ) %>
+                <% end %>
+            </div>
 
-    </div>
-    <div class="w-1/12"></div>
-    <div class="w-3/12 bg-second-300 m-t-20 h-full sticky top-20 border rounded-lg p-6">
-        <div class="clear-right">
-            <div class="float-left">Shipping</div>
-            <div class="float-right">
-                Free
+        </div>
+        <div class="w-1/12"></div>
+        <div class="w-3/12 bg-second-300 m-t-20 h-full sticky top-20 border rounded-lg p-6">
+            <div class="clear-right">
+                <div class="float-left">Shipping</div>
+                <div class="float-right">
+                    Free
+                </div>
+            </div>
+
+            <div class="clear-right">
+                <div class="float-left">Subtotal</div>
+                <div class="float-right ">
+                    $ 
+                    <span class="font-black text-xl" id="total_price">
+                        <%=
+                            @cart.total_price
+                        %>
+                    </span>
+                </div>
             </div>
         </div>
-
-        <div class="clear-right">
-            <div class="float-left">Subtotal</div>
-            <div class="float-right ">
-                $ 
-                <span class="font-black text-xl" id="total_price">
-                    <%= 
-                        @cart.total_price
-                    %>
-                </span>
-            </div>
-        </div>
     </div>
-</div>
+</turbo-frame>

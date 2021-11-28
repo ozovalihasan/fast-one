@@ -9,6 +9,27 @@ export default class extends Controller {
     searchTerm: String,
   };
 
+  connect() {
+    addEventListener("turbo:before-render", (event) => {
+      this._updateCategory()
+      // this.categoryTarget.value = url.searchParams.get("category")
+    });
+
+  }
+
+  _updateCategory() {
+    if( ["/products", "/products/"].includes(document.location.pathname) ){
+      let url = new URL(document.location);
+
+      if(url.searchParams.get("category")){
+        this.categoryTarget.value = url.searchParams.get("category")
+      } else {
+        this.categoryTarget.value = ""
+      }
+    }
+
+  }
+  
   search() {
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {

@@ -8,12 +8,15 @@ import SearchFormController from "./search_form_controller"
 import PaginationController from "./pagination_controller"
 import BackTopController from "./back_top_controller"
 import ConfirmationController from "./confirmation_controller"
-import { Alert, Tabs, Dropdown } from "tailwindcss-stimulus-components"
+import FormFrameController from "./form_frame_controller"
+import { Alert, Tabs, Dropdown, Modal } from "tailwindcss-stimulus-components"
 application.register("counter", CounterController)
 application.register("search-form", SearchFormController)
 application.register("pagination", PaginationController)
 application.register("back-top", BackTopController)
 application.register("confirmation", ConfirmationController)
+application.register("form-frame", FormFrameController)
 application.register("alert", Alert)
 application.register("tabs", Tabs)
 application.register('dropdown', Dropdown)
+application.register('modal', Modal)

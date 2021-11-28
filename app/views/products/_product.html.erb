@@ -1,4 +1,4 @@
-<div id=<%= dom_id product %> class="m-7 shadow-xl border relative" >
+<div id=<%= dom_id product %> class="m-7 shadow-xl relative" >
     <%= link_to product_path(product) do %>
         <div class="shadow-fifth-900 h-52 w-52 bg-fourth-200">
             image_here
@@ -22,9 +22,7 @@
 
         <div class="flex">
             <div class="flex-1 w-0 mx-3">
-                <%= link_to edit_product_path( product ), class: "btn-primary w-full" do %>
-                    Edit
-                <% end %>
+                <%= render 'products/add_product', product: product, button_name: "Edit" %>
             </div>
 
             <div class="flex-1 w-0 mx-3">

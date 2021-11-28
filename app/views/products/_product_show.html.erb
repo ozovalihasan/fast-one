@@ -1,0 +1,51 @@
+<div id=<%= dom_id product %> class="m-8">
+    <div class="shadow-xl border flex">
+        <div class="shadow-fifth-900 h-96  bg-fourth-200 flex-1">
+            image_here
+        </div>
+        <div class="flex-1 m-6">
+            <div class="text-center p-2">
+                <%= product.name %>
+            </div>
+            <div>
+                $ <%= product.price %>
+            </div>
+            <div>
+                <%= product.average_star %>
+            </div>
+
+            <div>
+                <%= product.shipping_locations.pluck(:name).join(", ") %>
+            </div>
+
+            <% if seller_signed_in? || admin_signed_in? %>
+
+                <div class="flex-1 flex">
+                    <div class="flex-1 w-0 mx-3">
+                        <%= render 'products/add_product', product: product, button_name: "Edit" %>
+                    </div>
+
+                    <div class="flex-1 w-0 mx-3">
+                        <a 
+                            href=<%= product_url( product ) %> 
+                            class="btn-warning w-full"
+                            data-controller="form-frame"
+                            data-form-frame-url-value=<%= product_url( product ) %> 
+                            data-action="click->form-frame#submit" 
+                        >
+                            Delete
+                        </a>
+                    </div>
+                </div>
+                
+            <% else %>
+                <%= render partial:'products/form_pieces', locals: { order_item: @order_item} %>
+            <% end %>
+
+                    
+        </div>
+    
+    </div>
+    
+    <%= render 'products/tabs' %>
+</div>

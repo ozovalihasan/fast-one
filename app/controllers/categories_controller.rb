@@ -4,6 +4,9 @@ class CategoriesController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   
   def index
+    if admin_signed_in?
+      @category = Category.new
+    end
   end
 
   def new
@@ -14,7 +17,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: "Category was successfully created." }
+        format.turbo_stream 
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -27,7 +30,8 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: "Category was successfully updated." }
+        format.turbo_stream 
+        # format.html { redirect_to root_path, notice: "Category was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
