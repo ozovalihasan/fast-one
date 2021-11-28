@@ -20,22 +20,8 @@
 
             <% if seller_signed_in? || admin_signed_in? %>
 
-                <div class="flex-1 flex">
-                    <div class="flex-1 w-0 mx-3">
-                        <%= render 'products/add_product', product: product, button_name: "Edit" %>
-                    </div>
-
-                    <div class="flex-1 w-0 mx-3">
-                        <a 
-                            href=<%= product_url( product ) %> 
-                            class="btn-warning w-full"
-                            data-controller="form-frame"
-                            data-form-frame-url-value=<%= product_url( product ) %> 
-                            data-action="click->form-frame#submit" 
-                        >
-                            Delete
-                        </a>
-                    </div>
+                <div class="flex-1 w-full mx-3">
+                    <%= render 'products/add_product', product: product, button_name: "Edit" %>
                 </div>
                 
             <% else %>
