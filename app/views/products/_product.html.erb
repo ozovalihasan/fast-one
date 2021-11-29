@@ -18,6 +18,16 @@
 
     </div>
 
+    <%= button_to "Buy now!", 
+            checkout_create_path, 
+            params: {id: product.id}, 
+            data: {
+                controller: "remote-form",
+                "remote-form-url-value": checkouts_url,
+                action: "click->remote-form#submit"
+            }
+    %>
+
     <% if seller_signed_in? || admin_signed_in? %>
 
         <div class="flex">

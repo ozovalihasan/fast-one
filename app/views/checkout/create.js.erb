@@ -1,0 +1,8 @@
+var stripe = Stripe('<%= Figaro.env.stripe_api_public_key %>');
+var checkoutButton = document.getElementById('checkout-button');
+
+stripe.redirectToCheckout({
+  sessionId: '<%= @session.id %>'
+}).then(function (result) {
+  console.warn(result.error.message)
+});
