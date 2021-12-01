@@ -29,7 +29,8 @@ Rails.application.routes.draw do
     resources :order_items, only: [:index, :update, :destroy]
   end
 
-  resources :checkouts, only: [:create]
+  post "checkouts/create", to: "checkouts#create"
+  resources :webhooks, only: [:create]
 
   root "categories#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

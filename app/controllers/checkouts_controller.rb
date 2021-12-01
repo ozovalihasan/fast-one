@@ -1,15 +1,20 @@
 class CheckoutsController < ApplicationController
   def create
-    product = Product.first
+    set_cart
+    order_items = @cart.order_items.includes :product
+    order_items = order_items.map do |order_item|
+      {
+        name: order_item.product.name,
+        amount: (order_item.product.price * 100).to_i,
+        currency: "usd",
+        quantity: order_item.quantity
+      }
+    end
+
     @session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [
-        {
-          name: product.name,
-          amount: 300,
-          currency: "usd",
-          quantity: 1
-        }
+        order_items
       ],
       mode: 'payment',
       success_url: categories_url,

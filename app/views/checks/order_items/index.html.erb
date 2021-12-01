@@ -1,35 +1,88 @@
 <turbo-frame id="primary" data-turbo-action="advance">
-    <div class="flex">
-        <div class="w-8/12" >
-            <div id="order_items_list">
-                <% if @cart.order_items.empty? %>
-                    <%= render partial: "checks/order_items/no_item"%>
-                <% else %>
-                    <%= render partial: "checks/order_items/order_item", collection: @cart.order_items.includes(:product    ) %>
-                <% end %>
-            </div>
+    <div data-controller="modal" data-modal-allow-background-close="false">
+        <div class="flex relative">
+            <div class="w-8/12" >
+                <div id="order_items_list">
+                    <% if @cart.order_items.empty? %>
+                        <%= render partial: "checks/order_items/no_item"%>
+                    <% else %>
+                        <%= render partial: "checks/order_items/order_item", collection: @cart.order_items.includes(:product    ) %>
+                    <% end %>
+                </div>
 
-        </div>
-        <div class="w-1/12"></div>
-        <div class="w-3/12 bg-second-300 m-t-20 h-full sticky top-20 border rounded-lg p-6">
-            <div class="clear-right">
-                <div class="float-left">Shipping</div>
-                <div class="float-right">
-                    Free
+            </div>
+            <div class="w-1/12"></div>
+            <div class="w-100 bg-first-50 mt-20 h-full sticky top-20 rounded-lg p-6 ">
+                <div class="">
+                    <table class="w-100">
+                        <tr>
+                            <th class="font-normal">Shipping:</th>
+                            <td>Free</td>
+                        </tr>
+                        <tr>
+                            <th class="font-normal">Subtotal:</th>
+                            <td>
+                                $ 
+                                <span class="font-black text-xl" id="total_price">
+                                    <%=
+                                        @cart.total_price
+                                    %>
+                                </span>
+                            </td>
+                        </tr>
+                    
+                    </table>
+                </div>
+
+                <div class="w-auto center-content mt-6" >
+            
+                    <%= button_to "Checkout", 
+                        "#", 
+                        data: {
+                            action: "click->modal#open",
+                            "modal-prevent-default-action-closing": false,
+                            "modal-prevent-default-action-opening": false
+                        },
+                        class: "btn-primary"
+
+                    %>
+
+                   
                 </div>
             </div>
+                
+            
+        </div>
 
-            <div class="clear-right">
-                <div class="float-left">Subtotal</div>
-                <div class="float-right ">
-                    $ 
-                    <span class="font-black text-xl" id="total_price">
-                        <%=
-                            @cart.total_price
-                        %>
-                    </span>
+        <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+            <div class="max-h-screen w-full max-w-lg ">
+                <div class="m-1 bg-white rounded shadow">
+                    <div class="p-16">
+                        You will be redirected to the payment page of Stripe.
+                        <a href="https://stripe.com/docs/testing#cards" class="link-primary">Any credit card number given by Stripe</a> can be used.
+
+                        <div class="flex justify-end pt-6">
+                            <div class="w-auto center-content ml-2" >
+                                <button class="btn-secondary" data-action="click->modal#close">Close</button>
+                            </div>
+
+                            <div class="w-auto center-content ml-2" >
+                                <%= button_to "Continue", 
+                                    "#", 
+                                    data: {
+                                        controller: "remote-form",
+                                        "remote-form-url-value": checkouts_create_url,
+                                        action: "click->remote-form#submit",
+                                    },
+                                    class: "btn-primary"
+
+                                %>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 </turbo-frame>
