@@ -2,7 +2,14 @@ class OrderItemsController < ApplicationController
   before_action :set_cart, only: [:create, :update]
   
   def create
-    @order_item = @cart.order_items.create order_item_params
+    @order_item = @cart.order_items.find_by product_id: params[:order_item][:product_id]
+    
+    if @order_item
+      @info = "The product was added to the cart previously."
+    else
+      @order_item = @cart.order_items.create order_item_params
+      @info = "The product is added to the cart."
+    end
     respond_to do |format|
       format.turbo_stream 
     end
