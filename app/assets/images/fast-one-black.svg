@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   data-name="Layer 1"
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg136"
+   sodipodi:docname="fast-one-black.svg"
+   inkscape:version="1.1.1 (eb90963e84, 2021-10-02)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs140" />
+  <sodipodi:namedview
+     id="namedview138"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:snap-intersection-paths="true"
+     inkscape:zoom="4.2276769"
+     inkscape:rotation="-2"
+     inkscape:cx="41.65287"
+     inkscape:cy="28.30651"
+     inkscape:window-width="1366"
+     inkscape:window-height="768"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg136"
+     width="40px" />
+  <title
+     id="title2">empty_cart</title>
+  <metadata
+     id="metadata957">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>empty_cart</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="path8405"
+     style="fill:none;stroke:#020202;stroke-width:6.46023;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 93.17031,20.485909 -11.978493,-0.23303 -4.437444,8.911898"
+     sodipodi:nodetypes="ccc" />
+  <path
+     id="path8405-6"
+     style="fill:#000000;stroke:#020202;stroke-width:6.46023;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+     d="m 9.6303861,28.863517 c 44.9121639,0 67.1239869,0.30126 67.1239869,0.30126 L 60.023278,62.766499 H 24.457391 c 0,0 -8.551591,-17.519559 -14.8270049,-33.902982 z"
+     sodipodi:nodetypes="ccccc" />
+  <circle
+     fill="#3f3d56"
+     id="circle52"
+     style="mix-blend-mode:normal;fill:#dfdbd5;fill-opacity:1;stroke:#dfdbd5;stroke-width:7.80431;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     cy="78.625641"
+     cx="33.915852"
+     r="0" />
+  <circle
+     cx="55.141964"
+     cy="78.629982"
+     fill="#3f3d56"
+     id="circle54"
+     style="mix-blend-mode:normal;fill:#dfdbd5;fill-opacity:1;stroke:#dfdbd5;stroke-width:7.80431;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     r="0" />
+  <ellipse
+     fill="#3f3d56"
+     id="circle52-3"
+     style="mix-blend-mode:normal;fill:#dfdbd5;fill-opacity:1;stroke:#020202;stroke-width:7.36274;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     cy="79.346817"
+     cx="31.515633"
+     rx="4.344636"
+     ry="4.4355083" />
+  <ellipse
+     cx="51.540684"
+     cy="79.350891"
+     fill="#3f3d56"
+     id="circle54-6"
+     style="mix-blend-mode:normal;fill:#dfdbd5;fill-opacity:1;stroke:#020202;stroke-width:7.36274;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     rx="4.344636"
+     ry="4.4355083" />
+</svg>
