@@ -7,11 +7,17 @@
     </a>
 
     <div 
-        class="items-center flex justify-center items-stretch m-3 w-full"
+        class="items-center flex justify-center items-stretch m-3 w-full "
         data-controller="search-form" 
         data-search-form-url-value="<%= products_url %>"
     >
-        <div class="w-full"><%= render "products/search_form" %></div>
+        
+        <div class="w-full relative">
+            <%= render "products/search_form" %>
+            <div class="hidden absolute left-4 top-1/2 transform -translate-y-1/2 center-content" data-search-form-target="loading">
+                <%= render 'layouts/loading' %>
+            </div>
+        </div>
         <%= render "products/category_list" %>
     </div>
     

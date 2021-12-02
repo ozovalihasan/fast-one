@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { get } from '@rails/request.js'
 
 export default class extends Controller {
-  static targets = [ "input", "category" ]
+  static targets = [ "input", "category", "loading" ]
 
   static values = {
     url: String,
@@ -12,7 +12,6 @@ export default class extends Controller {
   connect() {
     addEventListener("turbo:before-render", (event) => {
       this._updateCategory()
-      // this.categoryTarget.value = url.searchParams.get("category")
     });
 
   }
@@ -31,6 +30,7 @@ export default class extends Controller {
   }
   
   search() {
+    this.loadingTarget.classList.remove("hidden")
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
       this._fetchNewPage();
@@ -47,10 +47,11 @@ export default class extends Controller {
     if (this.categoryTarget.value) {
       url.searchParams.set('category', this.categoryTarget.value)
     }
-
+    
     await get(url.toString(), {
       responseKind: 'turbo-stream'
     });
+    this.loadingTarget.classList.add("hidden")
     history.replaceState(history.state, '', url);
   }
     
