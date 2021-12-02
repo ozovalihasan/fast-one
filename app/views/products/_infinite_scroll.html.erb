@@ -1,4 +1,8 @@
 <%= render @products %>
 <% if @page.to_i == @pagy.last %>
     <span class="hidden" data-pagination-target="lastPage"></span>
+<% else %>
+    <div id="products_list_loading" class="w-full h-32 center-content">
+        <%= render 'layouts/loading' %>
+    </div>
 <% end %>

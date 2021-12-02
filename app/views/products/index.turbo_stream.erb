@@ -4,6 +4,7 @@
       <% end %>
 <% end %>
 
+<%= turbo_stream.remove "products_list_loading" %>
 
 <% if @page == 1  %>
     <%= turbo_stream.replace "primary" do %>

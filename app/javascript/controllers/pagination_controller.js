@@ -52,9 +52,6 @@ export default class extends Controller {
   get scrollReachedEnd() {
       const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
       const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
-      if (distanceFromBottom < 20){
-        document.documentElement.scrollTop = scrollHeight - 200
-      }
-      return distanceFromBottom < 20;
+      return distanceFromBottom < 200;
   }
 }
