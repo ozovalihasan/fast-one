@@ -5,3 +5,6 @@
     <%= render partial: "checks/order_items/form", locals: { order_item: @order_item } %>
 <% end %>
 <%= turbo_stream.update "total_price", @cart.total_price %>
+<%= turbo_stream.replace "cart-counter" do %>
+    <%= render partial: "cart/cart_counter" %>
+<% end %>
