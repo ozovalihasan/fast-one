@@ -15,7 +15,7 @@
     "vite": "^2.6.13",
     "vite-plugin-ruby": "^3.0.2",
     "vite-plugin-stimulus-hmr": "^1.0.2",
-    "vite-plugin-windicss": "^1.4.12",
+    "vite-plugin-windicss": "^1.5.4",
     "windicss": "^3.2.1"
   }
 }
