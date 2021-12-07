@@ -30,7 +30,7 @@
             <span class="appearance-none flex items-center inline-block text-gray-700">
                 <%= current_user.email %>
             </span>
-            <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden z-10 w-full">
+            <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden z-10 w-auto">
                 <div class="bg-white shadow rounded border overflow-hidden">
                     <% if current_consumer %>
                         <%= link_to 'Profile', edit_consumer_registration_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap w-full' %>
