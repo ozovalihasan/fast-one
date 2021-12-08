@@ -2,7 +2,9 @@
     <%= form_with model: [:checks, order_item], id:"order-item-form", class: " " do |f| %>
         <%= f.hidden_field :quantity, value: order_item.quantity + 1  %>
         <%= f.button class: "center-content w-10 h-10 bg-first-300 rounded-full border" do %>
-            <div class="icon-math-plus"></div>
+            <div class="w-6 h-6">
+                <%= render 'icons/plus' %>
+            </div>
         <% end %>
     <% end %>
 
@@ -12,12 +14,16 @@
         <%= form_with model: [:checks, order_item], id:"order-item-form", class: "flex flex-col" do |f| %>
             <%= f.hidden_field  :quantity, value: order_item.quantity - 1 %>
             <%= f.button class: "center-content w-10 h-10 bg-first-300 rounded-full border" do %>
-                <div class="icon-math-minus "></div>
+                <div class="w-6 h-6">
+                    <%= render 'icons/minus' %>
+                </div>
             <% end %>
         <% end %>
     <% else %>
         <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-error-500 rounded-full border", data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
-            <div class="icon-trash bg-error-500"></div>
+            <div class="w-6 h-6">
+                <%= render 'icons/trash' %>
+            </div>
         <% end %>
     <% end %>
 </div>

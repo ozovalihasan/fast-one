@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite-plugin-windicss'
 import colors from 'windicss/colors'
 import plugin from 'windicss/plugin'
-import icons from '@windicss/plugin-icons'
 
 export default defineConfig({
   attributify: true,
@@ -53,7 +52,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    icons,
     require('windicss/plugin/aspect-ratio'),
     plugin(({ addUtilities }) => {
       const newUtilities = {

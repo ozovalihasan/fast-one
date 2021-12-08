@@ -13,31 +13,33 @@
         </a>
 
         <div class="ml-auto center-content space sm:w-16 md:w-48">
-            <div id="inside-nav" class="bg-white sm:h-16 sm:w-full sm:fixed sm:bottom-0 sm:left-0 md:relative flex md:w-2/3">
-                <div class="w-1/2 center-content">
-                    <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none sm:w-full md:w-16 ">
-                        <div class="center-content">
-                            <div class=" icon-search">
-                            
+            <div id="inside-nav" class="bg-white sm:h-16 sm:w-full sm:fixed sm:bottom-0 sm:left-0 md:relative flex md:w-2/3 h-full">
+                <div class="w-1/2 center-content h-full">
+                    <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none sm:w-full md:w-16 h-full">
+                        <div class="center-content h-full">
+                            <div class="w-6 h-6">
+                                <%= render 'icons/search' %>
                             </div>
                         </div>
                     </div>
                 
                     <div
                         id="search-bar"
-                        class="fixed sm:bottom-16 md:bottom-unset md:top-16 left-0 flex p-3 z-100 bg-orange-500 w-full"
+                        class="fixed sm:bottom-16 md:bottom-unset md:top-16 left-0 flex p-3 z-100 bg-white shadow-dark-100 shadow-md w-full"
                         data-dropdown-target="menu"
                         data-controller="search-form"
                         data-search-form-url-value="<%= products_url %>"
                     >
                 
-                        <div class="w-2/3 relative h-12">
+                        <div class="w-2/3 relative h-12 flex">
                             <%= render "products/search_form" %>
                             <div class="hidden absolute left-4 top-1/2 transform -translate-y-1/2 center-content" data-search-form-target="loading">
                                 <%= render 'layouts/loading' %>
                             </div>
                             <div class="absolute left-4 top-1/2 transform -translate-y-1/2 center-content" data-search-form-target="searchIcon">
-                                <div class="icon-search"></div>
+                                <div class="w-6 h-6">
+                                    <%= render 'icons/search' %>
+                                </div>
                             </div>
                         </div>
                         <div class="w-1/3 h-12">

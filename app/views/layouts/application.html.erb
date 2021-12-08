@@ -38,7 +38,8 @@
       <%= render 'layouts/navbar' %>
       <%= yield %>
       <button data-controller="back-top" data-action="click->back-top#scrollTop" data-back-top-target="button" class="fixed bottom-16 right-16 rounded-lg focus:outline-none" > 
-        <div class="icon-chevron-double-up icon-lg outline-none animate-pulse">
+        <div class="outline-none animate-pulse h-6 w-6">
+          <%= render 'icons/chevron_double' %>
         </div>
 
       </button>

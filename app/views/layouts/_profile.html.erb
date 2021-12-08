@@ -2,7 +2,8 @@
 <% if signed_in_user? %>
             
     <div data-controller="dropdown" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="relative block select-none">
-        <div class="icon-profile h-full">
+        <div class="w-6 h-6">
+            <%= render 'icons/person_circle' %>
         </div>
         <div data-dropdown-target="menu" class="absolute right-0  top-0 hidden z-10 w-auto">
             <div class="bg-white shadow rounded border overflow-hidden">

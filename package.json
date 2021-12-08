@@ -11,7 +11,6 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@windicss/plugin-icons": "^1.0.2",
     "vite": "^2.6.13",
     "vite-plugin-ruby": "^3.0.2",
     "vite-plugin-stimulus-hmr": "^1.0.2",
