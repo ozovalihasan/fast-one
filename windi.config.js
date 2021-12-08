@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite-plugin-windicss'
 import colors from 'windicss/colors'
+import plugin from 'windicss/plugin'
 import icons from '@windicss/plugin-icons'
 
 export default defineConfig({
@@ -45,10 +46,24 @@ export default defineConfig({
       }),
       fill: theme => theme('colors'),
     },
+    screens: {
+      sm: '0px',
+      md: '768px',
+      lg: '1024px',
+    },
   },
   plugins: [
     icons,
     require('windicss/plugin/aspect-ratio'),
+    plugin(({ addUtilities }) => {
+      const newUtilities = {
+        '.bottom-unset': {
+          bottom: 'unset'
+        },
+      }
+      addUtilities(newUtilities)
+    }),
+
   ]
 
 })
