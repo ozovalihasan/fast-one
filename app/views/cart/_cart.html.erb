@@ -1,8 +1,10 @@
 <% unless admin_signed_in? || seller_signed_in? %>
     <% if @cart %>
-        <a href=<%= checks_order_items_path %> data-turbo-permanent class="relative  flex w-8" id="cart"  data-turbo-frame="primary">
-            <img src=<%= asset_path "fast-one-black.svg" %> class="text-black w-8 h-8" alt="Cart">
-            <%= render "cart/cart_counter" %>
+        <a href=<%= checks_order_items_path %> data-turbo-permanent class=" flex w-full h-full center-content" id="cart"  data-turbo-frame="primary">
+            <div class="relative">
+                <img src=<%= asset_path "fast-one-black.svg" %> class="text-black w-8 h-8" alt="Cart">
+                <%= render "cart/cart_counter" %>
+            </div>
         </a>
     <% end %>
 <% end %>
