@@ -3,6 +3,10 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["button"]
 
+  static values = {
+    scrollPosition: Number
+  };
+
   
   initialize() {
     this.scroll = this.scroll.bind(this);
@@ -10,6 +14,7 @@ export default class extends Controller {
 
   connect() {
     document.addEventListener("scroll", this.scroll);
+    this.scrollPositionValue = 0
   }
 
   disconnect(){
@@ -22,11 +27,21 @@ export default class extends Controller {
   }
 
   scroll() {
-    if (document.documentElement.scrollTop > 50){
-      this.buttonTarget.classList.remove("hidden")
+    const mobileBreakPoint = 768
+    if(document.documentElement.clientWidth >= mobileBreakPoint){
+      if (document.documentElement.scrollTop > 50){
+        this.buttonTarget.classList.remove("hidden")
+      }else{
+        this.buttonTarget.classList.add("hidden")
+      }
     }else{
-      this.buttonTarget.classList.add("hidden")
+      if(document.documentElement.scrollTop < this.scrollPositionValue){
+        this.buttonTarget.classList.remove("hidden")
+      }else{
+        this.buttonTarget.classList.add("hidden")
+      }
     }
+    this.scrollPositionValue = document.documentElement.scrollTop
   }
 
 }

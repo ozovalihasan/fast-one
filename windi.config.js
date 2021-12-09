@@ -58,6 +58,9 @@ export default defineConfig({
         '.bottom-unset': {
           bottom: 'unset'
         },
+        '.scroll-smooth': {
+          "scroll-behavior": "smooth",
+        },
       }
       addUtilities(newUtilities)
     }),
