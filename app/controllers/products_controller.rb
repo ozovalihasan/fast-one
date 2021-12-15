@@ -34,9 +34,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @order_item = @cart.order_items.find_by product_id: @product.id
-    if @order_item.nil?
-      @order_item = @cart.order_items.new product_id: @product.id
+    unless admin_signed_in? || seller_signed_in?
+      @order_item = @cart.order_items.find_by product_id: @product.id
+      if @order_item.nil?
+        @order_item = @cart.order_items.new product_id: @product.id
+      end
     end
   end
 
