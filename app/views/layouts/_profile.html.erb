@@ -21,7 +21,7 @@
                 <% elsif current_admin %>
                     <%= link_to 'Profile', edit_admin_registration_path, data: {action: "click->dropdown#toggle", "turbo-frame":"primary"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-100 whitespace-nowrap w-full' %>
                 <% end %>
-                <%= button_to "Sign Out", destroy_session_path( current_seller || current_admin || current_consumer ), method: :delete, class: "no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-100 whitespace-nowrap w-full cursor-pointer text-left" %>
+                <%= button_to "Sign Out", destroy_session_path( current_user ), method: :delete, class: "no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-gray-100 whitespace-nowrap w-full cursor-pointer text-left", data: { turbo: false } %>
             </div>
         </div>
     </div>
