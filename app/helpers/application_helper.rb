@@ -11,6 +11,7 @@ module ApplicationHelper
   end
 
   def set_cart
+    return if seller_signed_in? || admin_signed_in?
     @cart = current_order
   end
 
