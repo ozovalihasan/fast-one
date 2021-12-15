@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="sm:text-sm md:text-md scroll-smooth">
   <head>
     <title>Street</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,7 +12,7 @@
     <%= vite_javascript_tag 'application', 'data-turbo-track': 'reload'  %>
   </head>
 
-  <body class="dark mx-16">
+  <body class="dark sm:mx-4 md:mx-16">
     <div id="alert">    </div>
     <div id="notice" class="fixed inset-x-0 bottom-0 flex flex-col items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none"> 
       <% flash.each do |type, msg| %>
@@ -24,9 +24,13 @@
       data-controller="modal" 
       data-modal-prevent-default-action-closing="false"
       data-modal-prevent-default-action-opening="false"
-      class="m-16"
+      class="mt-16 sm:mb-16 md:mb-0"
     >
-      <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center z-9999">
+      <div 
+        data-modal-target="container" 
+        data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" 
+        class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center z-9999"
+      >
         <div class="max-h-screen w-full max-w-lg relative">
           <div class="p-8 bg-white rounded shadow">
             <turbo-frame id="modal" >
@@ -41,7 +45,7 @@
         data-controller="back-top" 
         data-action="click->back-top#scrollTop" 
         data-back-top-target="button" 
-        class="fixed bottom-40 right-16 rounded-lg focus:outline-none bg-white" 
+        class="fixed hidden bottom-40 right-16 rounded-lg focus:outline-none bg-white" 
       > 
         <div class="outline-none animate-pulse h-6 w-6">
           <%= render 'icons/chevron_double' %>

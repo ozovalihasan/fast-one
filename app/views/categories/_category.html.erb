@@ -1,6 +1,6 @@
-<turbo-frame id=<%= dom_id category %> class="m-7 shadow-xl border w-5/12 relative">
+<turbo-frame id=<%= dom_id category %> class="m-7 shadow-xl border md:w-5/12 relative">
     <%= link_to products_path(category: category.id), class: "flex relative", data: {"turbo-frame": "primary"} do %>
-        <div class="shadow-fifth-900 h-52 w-52 bg-fourth-200">
+        <div class="shadow-fifth-900 sm:h-36 sm:w-36 md:h-48 md:w-48 bg-fourth-200">
             category_image_here
         </div>
         <div class="text-center p-2">

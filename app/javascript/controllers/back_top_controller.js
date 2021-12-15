@@ -35,7 +35,7 @@ export default class extends Controller {
         this.buttonTarget.classList.add("hidden")
       }
     }else{
-      if(document.documentElement.scrollTop < this.scrollPositionValue){
+      if(document.documentElement.scrollTop < this.scrollPositionValue && document.documentElement.scrollTop > 0){
         this.buttonTarget.classList.remove("hidden")
       }else{
         this.buttonTarget.classList.add("hidden")

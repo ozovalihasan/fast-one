@@ -1,12 +1,12 @@
 <turbo-frame id="primary" data-turbo-action="advance">
-    <div id="categories" class="flex flex-wrap justify-center" >
+    <div id="categories" class="flex sm:flex-col md:flex-row md:flex-wrap justify-center" >
         <% if admin_signed_in? %>
-            <%= turbo_frame_tag "new_category", class: "h-52 w-5/12 m-7 bg-first-white border border-first-200 center-content rounded-lg flex-col" do %>
+            <%= turbo_frame_tag "new_category", class: "h-52 md:w-5/12 m-7 bg-first-white border border-first-200 center-content rounded-lg flex-col" do %>
                 <%= render 'form', category: @category %>
             <% end %>
         <% end %>
         
-        <div class="m-7 shadow-xl border w-5/12 relative">
+        <div class="m-7 shadow-xl border md:w-5/12 h-52 relative">
             <%= link_to products_path, class: "flex relative center-content h-full", data: {"turbo-frame": "primary"} do %>
                 <div class="text-center p-2">
                     All Categories

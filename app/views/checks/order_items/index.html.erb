@@ -1,7 +1,7 @@
 <turbo-frame id="primary" data-turbo-action="advance">
     <div data-controller="modal" data-modal-allow-background-close="false">
-        <div class="flex relative">
-            <div class="w-8/12" >
+        <div class="flex sm:flex-col md:flex-row relative">
+            <div class="sm:w-full md:w-8/12" >
                 <div id="order_items_list">
                     <% if @cart.order_items.empty? %>
                         <%= render partial: "checks/order_items/no_item"%>
@@ -11,28 +11,26 @@
                 </div>
 
             </div>
-            <div class="w-1/12"></div>
-            <div class="w-100 bg-first-50 mt-20 h-full sticky top-20 rounded-lg p-6 ">
-                <div class="">
-                    <table class="w-100">
-                        <tr>
-                            <th class="font-normal">Shipping:</th>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <th class="font-normal">Subtotal:</th>
-                            <td>
-                                $ 
-                                <span class="font-black text-xl" id="total_price">
-                                    <%=
-                                        @cart.total_price
-                                    %>
-                                </span>
-                            </td>
-                        </tr>
-                    
-                    </table>
-                </div>
+            <div class="sm:w-full md:w-1/12"></div>
+            <div class="sm:w-full md:w-3/12 bg-first-50 mt-20 h-full sticky md:top-20 rounded-lg p-6 ">
+                <table class="w-full mx-auto">
+                    <tr>
+                        <th class="font-normal">Shipping:</th>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <th class="font-normal">Subtotal:</th>
+                        <td>
+                            $ 
+                            <span class="font-black text-xl" id="total_price">
+                                <%=
+                                    @cart.total_price
+                                %>
+                            </span>
+                        </td>
+                    </tr>
+                
+                </table>
 
                 <div class="w-auto center-content mt-6" >
             

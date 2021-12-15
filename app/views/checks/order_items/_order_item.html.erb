@@ -1,7 +1,7 @@
 <div id=<%= dom_id order_item %>>
-    <div class="m-7 border-b-gray-200 border-b flex py-8">
+    <div class="sm:m-2 md:m-8 border-b-gray-200 border-b flex py-8">
         <%= link_to product_path(order_item.product), class: "flex-0" do %>
-            <div class=" h-32 w-32 bg-fourth-200 rounded-lg">
+            <div class="sm:h-16 md:h-32 sm:w-16 md:w-32 bg-fourth-200 rounded-lg">
                 image_here
             </div>
         <% end %>
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="items-center flex mx-16">
+        <div class="sm:hidden md:flex items-center sm:mx-4 md:mx-16">
             <%= button_to [:checks, order_item], method: :delete, class: "center-content w-10 h-10 bg-error-500 rounded-full border", data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
                 <div class="w-6 h-6">
                     <%= render 'icons/trash' %>

@@ -1,39 +1,39 @@
-<div id=<%= dom_id product %> class="m-7 shadow-xl" >
-    <%= link_to product_path(product) do %>
-        <div class="shadow-fifth-900 h-52 w-52 bg-fourth-200">
-            image_here
-        </div>
-        <div class="text-center p-2">
-            <%= product.name %>
-        </div>
-    <% end %>
-    
-    <div class="relative" >
-        <div class="m-4">
-            <div>
-                $ <%= product.price %>
+<div id=<%= dom_id product %> class="sm:w-1/2 md:w-1/3 lg:w-1/4" >
+    <div class="sm:m-2 md:m-4 shadow-xl">
+        <%= link_to product_path(product) do %>
+            <div class="shadow-fifth-900 h-52 w-full bg-fourth-200">
+                image_here
             </div>
-            <div>
-                <%= product.average_star %> - <%= product.reviews.length %>
+            <div class="text-center p-2">
+                <%= product.name %>
             </div>
-        </div>
-
-        <div class="opacity-0 hover:opacity-100 flex absolute top-0 left-0 right-0 h-full w-full center-content">
-            <% if seller_signed_in? || admin_signed_in? %>
-                <div class="flex-1 w-0 mx-3">
-                    <%= render 'products/add_product', product: product, button_name: "Edit" %>
+        <% end %>
+        
+        <div class="relative" >
+            <div class="m-4">
+                <div>
+                    $ <%= product.price %>
                 </div>
-
-                <div class="flex-1 w-0 mx-3">
-                    <%= button_to product_path( product ), method: :delete, class: "btn-warning w-full", data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
-                        Delete
-                    <% end %>
+                <div>
+                    <%= product.average_star %> - <%= product.reviews.length %>
                 </div>
-            <% else %>
-                <div class="w-full ">
-                    <%= button_to "Add to Cart", order_items_path, class: "btn-primary w-full", params: { order_item: {product_id: product.id, quantity: 1}} %>
-                </div>
-            <% end %>
+            </div>
+            <div class="opacity-0 sm:hidden md:flex md:hover:opacity-100 absolute top-0 left-0 right-0 h-full w-full center-content">
+                <% if seller_signed_in? || admin_signed_in? %>
+                    <div class="flex-1 w-0 mx-3">
+                        <%= render 'products/add_product', product: product, button_name: "Edit" %>
+                    </div>
+                    <div class="flex-1 w-0 mx-3">
+                        <%= button_to product_path( product ), method: :delete, class: "btn-warning w-full", data: { controller:  "confirmation", action: "click->confirmation#confirm" } do %>
+                            Delete
+                        <% end %>
+                    </div>
+                <% else %>
+                    <div class="w-full ">
+                        <%= button_to "Add to Cart", order_items_path, class: "btn-primary w-full", params: { order_item: {product_id: product.id, quantity: 1}} %>
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
 

@@ -3,56 +3,76 @@
         h-16
         z-9000 justify-center fixed  right-0 left-0 
         bg-white shadow-dark-100 shadow-lg
-        top-0
+        top-0 inset-x-0
+        sm:px-8 md:px-16 
     "
 >
-    <div class="flex items-center relative" data-controller="dropdown">
+    <div class="flex items-center text relative" data-controller="dropdown">
         
         <a href=<%= root_path %> class="text-center text-shadow-md shadow-none" data-turbo-action="advance" data-turbo-frame="primary" >
             <img src=<%= asset_path "fast-one-logo.svg" %> class="w-16 h-16" alt="Fast-one Logo">
         </a>
 
-        <div class="ml-auto center-content space sm:w-16 md:w-48">
-            <div id="inside-nav" class="bg-white sm:h-16 sm:w-full sm:fixed sm:bottom-0 sm:left-0 md:relative flex md:w-2/3 h-full">
-                <div class="w-1/2 center-content h-full">
-                    <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none sm:w-full md:w-16 h-full">
-                        <div class="center-content h-full">
-                            <div class="w-6 h-6">
+        <div class="w-full flex center-content">
+            <div
+                id="search-bar-dummy"
+                class="sm:fixed md:static sm:bottom-16 md:bottom-unset md:top-16 md:px-16 inset-x-0 flex sm:p-3 md:p-0 z-100 bg-white sm:shadow-dark-100 md:shadow-none shadow-md w-full "
+                data-dropdown-target="menu"
+                data-controller="search-form"
+                data-search-form-url-value="<%= products_url %>"
+            >
+        
+                <div class="w-2/3 relative h-12 flex">
+                    <%= render "products/search_form" %>
+                    <div class="hidden absolute left-4 top-1/2 transform -translate-y-1/2 center-content" data-search-form-target="loading">
+                        <%= render 'layouts/loading' %>
+                    </div>
+                    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 center-content" data-search-form-target="searchIcon">
+                        <div class="w-6 h-6">
+                            <button data-action="click->search-form#search" class="outline-none">
                                 <%= render 'icons/search' %>
-                            </div>
+                            </button>
                         </div>
                     </div>
-                
-                    <div
-                        id="search-bar"
-                        class="fixed sm:bottom-16 md:bottom-unset md:top-16 left-0 flex p-3 z-100 bg-white shadow-dark-100 shadow-md w-full"
-                        data-dropdown-target="menu"
-                        data-controller="search-form"
-                        data-search-form-url-value="<%= products_url %>"
-                    >
-                
-                        <div class="w-2/3 relative h-12 flex">
-                            <%= render "products/search_form" %>
-                            <div class="hidden absolute left-4 top-1/2 transform -translate-y-1/2 center-content" data-search-form-target="loading">
-                                <%= render 'layouts/loading' %>
-                            </div>
-                            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 center-content" data-search-form-target="searchIcon">
+                </div>
+                <div class="w-1/3 h-12">
+                    <%= render "products/category_list" %>
+                </div>
+            </div>
+            <div class="ml-auto flex align-items-stretch h-16 sm:w-16 md:w-48 flex-shrink-0">
+                <div
+                    id="inner-nav-dummy"
+                    class="bg-white sm:h-16 sm:w-full sm:fixed sm:bottom-0 sm:left-0 md:relative flex md:w-2/3 h-full"
+                >
+            
+                    <div class="flex-1 w-0 center-content h-full">
+            
+                        <div
+                            data-action="click->dropdown#toggle click@window->dropdown#hide"
+                            role="button"
+                            data-dropdown-target="button"
+                            tabindex="0"
+                            class="inline-block select-none w-full h-full bg-white hover:bg-gray-100 transition duration-200"
+                        >
+                            <div class="center-content h-full">
                                 <div class="w-6 h-6">
                                     <%= render 'icons/search' %>
                                 </div>
                             </div>
                         </div>
-                        <div class="w-1/3 h-12">
-                            <%= render "products/category_list" %>
-                        </div>
+            
+            
                     </div>
+            
+                    <% unless admin_signed_in? || seller_signed_in? %>
+                        <div class="flex-1 w-0 center-content bg-white hover:bg-gray-100 transition duration-200">
+                            <%= render "cart/cart" %>
+                        </div>
+                    <% end %>
                 </div>
-                <div class="w-1/2 center-content ">
-                    <%= render "cart/cart" %>
+                <div class="sm:w-full md:w-1/3 h-auto center-content hover:bg-gray-100 transition duration-200">
+                    <%= render 'layouts/profile' %>
                 </div>
-            </div>
-            <div class="w-1/3 h-full center-content">
-                <%= render 'layouts/profile' %>
             </div>
         </div>
 
