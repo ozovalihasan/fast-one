@@ -10,6 +10,7 @@ class Checks::OrderItemsController < ApplicationController
     @order_item = OrderItem.find params[:id]
     @order_item.update order_item_params
     respond_to do |format|
+      flash.now[:notice] = "#{@order_item.product.name} is updated."
       format.turbo_stream 
     end
   end
@@ -18,6 +19,7 @@ class Checks::OrderItemsController < ApplicationController
     @order_item = OrderItem.find params[:id]
     @order_item.delete
     respond_to do |format|
+      flash.now[:notice] = "#{@order_item.product.name} is removed."
       format.turbo_stream 
     end
   end

@@ -1,7 +1,5 @@
+<%= render "layouts/flash" %>
+
 <%= turbo_stream.replace dom_id @category do %>
   <%= render partial: "categories/category", locals: { category: @category } %>
-<% end %>
-
-<%= turbo_stream.append "notice" do %>
-    <%= render partial: "layouts/alert", locals: { information: "#{@category.name} is updated." } %>
 <% end %>

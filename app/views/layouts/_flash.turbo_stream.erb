@@ -1,0 +1,5 @@
+<%= turbo_stream.append "notice" do %>
+  <% flash.each do |type, msg| %>
+    <%= render partial: "layouts/alert", locals: { information: msg } %>
+  <% end %>
+<% end %>

@@ -30,6 +30,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
+        flash.now[ :notice ] = "#{@category.name} is updated."
         format.turbo_stream 
         # format.html { redirect_to root_path, notice: "Category was successfully updated." }
       else
@@ -41,6 +42,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
+      flash.now[ :notice ] = "#{@category.name} is removed."
       format.turbo_stream 
     end
   end

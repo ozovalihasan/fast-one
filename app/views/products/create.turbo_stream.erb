@@ -1,11 +1,7 @@
+<%= render "layouts/flash" %>
+
 <%= turbo_stream.append "products" do %>
   <%= render partial: "products/product", locals: { product: @product } %>
-<% end %>
-
-<%= turbo_stream.append "notice" do %>
-  <% flash.each do |type, msg| %>
-    <%= render partial: "layouts/alert", locals: { information: msg } %>
-  <% end %>
 <% end %>
 
 <%= turbo_stream.remove "no-product" %>

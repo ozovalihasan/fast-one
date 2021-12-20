@@ -5,10 +5,10 @@ class OrderItemsController < ApplicationController
     @order_item = @cart.order_items.find_by product_id: params[:order_item][:product_id]
     
     if @order_item
-      @info = "The product was added to the cart previously."
+      flash.now[:notice] = "The product was added to the cart previously."
     else
       @order_item = @cart.order_items.create order_item_params
-      @info = "The product is added to the cart."
+      flash.now[:notice] = "The product is added to the cart."
     end
     respond_to do |format|
       format.turbo_stream 
@@ -19,6 +19,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find params[:id]
     @order_item.update quantity: (@order_item.quantity + order_item_params["quantity"].to_i)
     respond_to do |format|
+      flash.now[:order] = "#{@order_item.product.name} is updated."
       format.turbo_stream 
     end
   end
