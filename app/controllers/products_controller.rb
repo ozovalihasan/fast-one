@@ -50,6 +50,9 @@ class ProductsController < ApplicationController
       @sellers = Seller.all
       @product.seller = Seller.first
     end
+    respond_to do |format|
+      format.turbo_stream 
+    end
   end
 
   def edit

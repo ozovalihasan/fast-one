@@ -1,0 +1,6 @@
+<%= turbo_stream.replace "modal" do %>
+    <turbo-frame id="modal" >
+        <%= render partial: 'products/form', locals: {product: @product} %>
+    </turbo-frame>
+<% end %>
+
