@@ -27,8 +27,8 @@
           
         <% end %>
         <% if @products.empty? %>
-            <div class="flex">
-                <div id="no-product" class="text-center w-52 m-7 p-6">
+            <div class="flex" id="no-product">
+                <div class="text-center w-52 m-7 p-6">
                     There is no result to show
                     <% if @category %>
                         in <%= @category.name %>

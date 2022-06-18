@@ -33,7 +33,6 @@ class CategoriesController < ApplicationController
       if @category.update(category_params)
         flash.now[ :notice ] = "#{@category.name} is updated."
         format.turbo_stream 
-        # format.html { redirect_to root_path, notice: "Category was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
