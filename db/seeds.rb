@@ -9,6 +9,12 @@
 FactoryBot.create(:user)
 
 5.times do
+  FactoryBot.create(:admin)
+  FactoryBot.create(:seller)
+  FactoryBot.create(:consumer)
+end
+
+5.times do
   FactoryBot.create(:category)
 end
 
