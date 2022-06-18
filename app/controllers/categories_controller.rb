@@ -17,6 +17,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     respond_to do |format|
       if @category.save
+        flash.now[ :notice ] = "#{@category.name} is created."
         format.turbo_stream 
       else
         format.html { render :new, status: :unprocessable_entity }
