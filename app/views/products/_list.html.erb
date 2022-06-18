@@ -13,16 +13,16 @@
         <% end %>
     >   
         <% if seller_signed_in? || admin_signed_in? %>
-            <div class="w-52 m-7 center-content rounded-lg flex-col">
-                <a 
-                    href=<%= new_product_path %> 
-                    data-action="click->modal#open" 
-                    class="btn-primary w-52 m-7 center-content rounded-lg flex-col" 
-                    data-turbo-frame="modal"
-                >
-                    Add
-                </a>
-
+            <div id="new_product" class="w-52 m-7 center-content rounded-lg flex-col" >
+                <%= 
+                    button_to "New",  
+                        new_product_path, 
+                        class: "btn-primary w-52 m-7 center-content rounded-lg flex-col", 
+                        data: {
+                            action: "click->modal#open",
+                            "turbo-frame": "modal",
+                        }
+                %>
             </div>
           
         <% end %>

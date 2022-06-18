@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   resources :products do 
     resources :reviews
     resources :questions
+    member do
+      post :new
+    end
   end
 
   namespace :checks do
