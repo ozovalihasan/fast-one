@@ -1,6 +1,6 @@
 <%= render "layouts/flash" %>
 
-<%= turbo_stream.append "products" do %>
+<%= turbo_stream.after "new_product" do %>
   <%= render partial: "products/product", locals: { product: @product } %>
 <% end %>
 
